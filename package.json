@@ -1,0 +1,18 @@
+{
+  "name": "emulador",
+  "version": "1.0.0",
+  "description": "emulador projeto vtex",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "nicolas",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.18.5"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "request": "^2.88.0"
+  }
+}
