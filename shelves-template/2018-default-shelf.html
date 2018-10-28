@@ -1,9 +1,8 @@
-#set($id = $product.Id)
+<!-- #set($id = $product.Id)
 #set($idSku = $product.productVariantId)
 #set($uri = $product.Uri)
-#set($escapedName = $product.HtmlEscapedName)
+#set($escapedName = $product.HtmlEscapedName) -->
 <div>
-
     <div>
         <a title="$escapedName" href="$uri">
             <input type="hidden" class="product-image" value='$product.GetImageTag(30)' />
@@ -11,7 +10,7 @@
         </a>
     </div>
     <div>
-        #if ($product.IsInStock)
+        <!-- #if ($product.IsInStock)
             #if ($product.HasBestPrice)
                 <span>
                     De: <span class="the-price">$product.ListPrice</span>
@@ -34,7 +33,7 @@
             </em>
         #else
             <span>Avise-me quando chegar</span>
-        #end
+        #end -->
     </div>
     
     <input type="hidden" id="getProductId" value='$id' />
@@ -55,9 +54,5 @@
     <input type="hidden" id="getProductEscapedName" value='$escapedName'/>
     <input type="hidden" id="getProductDepartmentName" value='$product.DepartmentName'/>
     <input type="hidden" id="getProductImage" value='$product.GetImageTag(30)'/>
-    <input type="hidden" id="getProductImageSwatch" value='$product.GetImageTag(30, 'Swatch')'/>
-    <input type="hidden" id="getProductImageFront" value='$product.GetImageTag(30,'Front')'/>
-    <input type="hidden" id="getProductImageWearFront" value='$product.GetImageTag(30,'wearfront')'/>
-    <input type="hidden" id="getProductImageWearBack" value='$product.GetImageTag(30,'wearback')'/>
     <input type="hidden" id="getBottomBuyAsynchronous" value='$product.BottomBuyAsynchronous'/>
 </div>

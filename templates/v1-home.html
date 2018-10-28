@@ -1,27 +1,33 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-br">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce"
+    lang="pt-br">
+
 <head>
     <vtex:template id="2018-v1-head-tags" />
 </head>
+
 <body>
+    
     <!-- header -->
     <vtex:template id="2018-v1-header" />
     <!-- end header -->
+
     <main>
         <section id="root-banner">
-            <!-- <noscript class="placeholder"> -->
+            <noscript class="placeholder">
                 <vtex:contentPlaceHolder id="Banner Principal" />
-            <!-- </noscript> -->
+            </noscript>
         </section>
 
-        <section>
-                <vtex:contentPlaceHolder id="Prateleira black" />
-        </section>
+        <!-- <section>
+            <vtex:contentPlaceHolder id="Prateleira black" />
+        </section> -->
+
         <vtex.cmc:reguainformativa />
-        
     </main>
     <!-- footer -->
     <vtex:template id="2018-v1-footer" />
     <!-- end footer -->
 </body>
+
 </html>
