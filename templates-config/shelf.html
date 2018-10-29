@@ -1,0 +1,141 @@
+<div class="main">
+    <p class="searchResultsTime">
+        <span class="resultado-busca-numero">
+            <span class="label">Produtos encontrados:</span>
+            <span class="value">240</span>
+        </span>
+        <span class="resultado-busca-termo">
+            <span class="label">Resultado da Pesquisa por:</span>
+            <strong class="value"></strong>
+        </span>
+        <span class="resultado-busca-tempo">
+            <span class="label">em</span>
+            <span class="value">6 ms</span>
+        </span>
+    </p>
+    <div class="sub">
+        <div class="resultado-busca-filtro">
+            <fieldset class="orderBy">
+                <label>Ordenar por:</label>
+                <select id="O" onchange="window.location.href= '{{link}}?PS=9&' + 'O=' + this.options[this.selectedIndex].value">
+                    <option value="">Selecione</option>
+                    <option value="OrderByPriceASC">Menor Preço</option>
+                    <option value="OrderByPriceDESC">Maior Preço</option>
+                    <option value="OrderByTopSaleDESC">Mais vendidos</option>
+                    <option value="OrderByReviewRateDESC">Melhores avaliações</option>
+                    <option value="OrderByNameASC">A - Z</option>
+                    <option value="OrderByNameDESC">Z - A</option>
+                    <option value="OrderByReleaseDateDESC">Data de lançamento</option>
+                    <option value="OrderByBestDiscountDESC">Melhor Desconto</option>
+                </select>
+            </fieldset>
+            <fieldset class="filterBy">
+                Itens por página:
+
+                <select id="PS" onchange="window.location.href = '{{link}}?' + 'PS=' + this.options[this.selectedIndex].value">
+                    <option selected="selected" value="9">9</option>
+                    <option value="18">18</option>
+                    <option value="27">27</option>
+                    <option value="36">36</option>
+                </select>
+            </fieldset>
+            <p class="compare">
+                Produtos selecionados para comparar:
+                <strong>
+                    <span class="compare-selection-count" id="NumeroSuperior">0</span>
+                </strong>
+                <a title="Comparar" class="btn-comparar" href="#">Comparar</a>
+            </p>
+        </div>
+    </div>
+    <div class="vitrine resultItemsWrapper">
+        <script type='text/javascript'>
+            var pagecount_43902270;
+            $(document).ready(function () {
+                pagecount_43902270 = 27;
+                $('#PagerTop_43902270').pager({
+                    pagenumber: 1,
+                    pagecount: pagecount_43902270,
+                    buttonClickCallback: PageClick_43902270
+                });
+                $('#PagerBottom_43902270').pager({
+                    pagenumber: 1,
+                    pagecount: pagecount_43902270,
+                    buttonClickCallback: PageClick_43902270
+                });
+                if (window.location.hash != '')
+                    PageClick_43902270(window.location.hash.replace(/\#/, ''));
+            });
+            PageClick_43902270 = function (pageclickednumber) {
+                window.location.hash = pageclickednumber;
+                $('#ResultItems_43902270').load('/buscapagina?{{categoryPath}}&PS=9&sl={{sl}}&cc=3&sm=0&PageNumber=' + pageclickednumber, function () {
+                    $('#PagerTop_43902270').pager({
+                        pagenumber: pageclickednumber,
+                        pagecount: pagecount_43902270,
+                        buttonClickCallback: PageClick_43902270
+                    });
+                    $('#PagerBottom_43902270').pager({
+                        pagenumber: pageclickednumber,
+                        pagecount: pagecount_43902270,
+                        buttonClickCallback: PageClick_43902270
+                    });
+                    bindQuickView();
+                });
+            }
+        </script>
+        <div class="pager top" id="PagerTop_43902270"></div>
+        <div id="ResultItems_43902270" class="{{className}}">
+            {{products}}
+        </div>
+        <div class="pager bottom" id="PagerBottom_43902270"></div>
+    </div>
+    <p class="searchResultsTime">
+        <span class="resultado-busca-numero">
+            <span class="label">Produtos encontrados:</span>
+            <span class="value">240</span>
+        </span>
+        <span class="resultado-busca-termo">
+            <span class="label">Resultado da Pesquisa por:</span>
+            <strong class="value"></strong>
+        </span>
+        <span class="resultado-busca-tempo">
+            <span class="label">em</span>
+            <span class="value">6 ms</span>
+        </span>
+    </p>
+    <div class="sub">
+        <div class="resultado-busca-filtro">
+            <fieldset class="orderBy">
+                <label>Ordenar por:</label>
+                <select id="O" onchange="window.location.href= '{{link}}?PS=9&' + 'O=' + this.options[this.selectedIndex].value">
+                    <option value="">Selecione</option>
+                    <option value="OrderByPriceASC">Menor Preço</option>
+                    <option value="OrderByPriceDESC">Maior Preço</option>
+                    <option value="OrderByTopSaleDESC">Mais vendidos</option>
+                    <option value="OrderByReviewRateDESC">Melhores avaliações</option>
+                    <option value="OrderByNameASC">A - Z</option>
+                    <option value="OrderByNameDESC">Z - A</option>
+                    <option value="OrderByReleaseDateDESC">Data de lançamento</option>
+                    <option value="OrderByBestDiscountDESC">Melhor Desconto</option>
+                </select>
+            </fieldset>
+            <fieldset class="filterBy">
+                Itens por página:
+
+                <select id="PS" onchange="window.location.href= '{{link}}?' + 'PS=' + this.options[this.selectedIndex].value">
+                    <option selected="selected" value="9">9</option>
+                    <option value="18">18</option>
+                    <option value="27">27</option>
+                    <option value="36">36</option>
+                </select>
+            </fieldset>
+            <p class="compare">
+                Produtos selecionados para comparar:
+                <strong>
+                    <span class="compare-selection-count" id="NumeroSuperior">0</span>
+                </strong>
+                <a title="Comparar" class="btn-comparar" href="#">Comparar</a>
+            </p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+
+module.exports = {
+    hostApi: "lojaprojetoverao.com.br",
+    innerPath: "/",
+    appKey: 'vtexappkey-obasuplementos-GPVOUL',
+    appToken: 'CCGFDHHYJZFTKUWPDXAIMBJWVTZRVMAISKKACDFSRSDIZAYGRKQPEZXBTKJKHPDXZWBZJWMASHQTYBWUUSAKVKDSNJHRTVKBPFJDZZXVYQWXJDCSOOPPPSBOSJLZOVGX'
+}

@@ -1,0 +1,49 @@
+[
+    {
+        "id": "Banner Principal",
+        "contents": [
+            {
+                "id": "banner 01 conteúdo",
+                "type": "html",
+                "template": "banner-01-conteudo.html"
+            },
+            {
+                "id": "banner 01",
+                "type": "banner",
+                "src": "/arquivos/banner-01.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "banner 01 mobile",
+                "type": "banner",
+                "src": "/arquivos/banner-01.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "banner 02 conteúdo",
+                "type": "html",
+                "template": "banner-02-conteudo.html"
+            },
+            {
+                "id": "banner 02",
+                "type": "banner",
+                "src": "/arquivos/banner-02.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "banner 02 mobile",
+                "type": "banner",
+                "src": "/arquivos/banner-02.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            }
+        ]
+    }
+]
