@@ -105,7 +105,7 @@ module.exports.parseTemplate = async (products, content, coluns = 5, items = 0) 
 
     return `
         <div class="${config.class} n${coluns}colunas">
-            <h2>${content.id}</h2>
+            <h2>${content.id || content.name}</h2>
             ${listsHtml.join("")}
         </div>
     `;

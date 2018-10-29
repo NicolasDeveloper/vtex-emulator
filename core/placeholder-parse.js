@@ -19,9 +19,7 @@ module.exports.parse = async (controller, templateString) => {
 
     for (let index = 0; index < searcheds.length; index++) {
 
-        const placeholder = searcheds[index];
-
-        
+        const placeholder = searcheds[index];        
 
         if (placeholder && placeholder.contents && placeholder.contents.length > 0) {
             const contents = [];
@@ -51,9 +49,8 @@ module.exports.parse = async (controller, templateString) => {
 
             parses.push(placeholder);
         } else {
-            templateString = templateString.replace(placeholder.tag, `placeholder não encontrado  ${placeholder.tag} `)
+            templateString = templateString.replace(placeholder.tag, `placeholder não encontrado: ${placeholder.tag.match(/id\=\"[0-9|\-|\s|a-z|A-Z|\_]+\"/g)[0]} `)
         }
-
     }
 
     for (let index = 0; index < parses.length; index++) {

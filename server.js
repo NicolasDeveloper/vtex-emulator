@@ -4,6 +4,7 @@ var app = express();
 var routes = require("./routes/app.router");
 var template = require("./core/template-parse");
 var placeholder = require("./core/placeholder-parse");
+var customelements = require("./core/customelement-parse");
 
 app.use('/arquivos', express.static('arquivos'));
 
@@ -13,6 +14,7 @@ routes.forEach(route => {
             let stringTemplate = data;
             stringTemplate = await template.parse(stringTemplate);
             stringTemplate = await placeholder.parse(route.controller, stringTemplate);
+            stringTemplate = await customelements.parse(stringTemplate);
             stringTemplate = await stringTemplate.replace("<body>", `<body class="${route.bodyClass}">`);
             res.send(stringTemplate); 
         });

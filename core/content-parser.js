@@ -3,9 +3,18 @@ const fs = require("fs");
 const vtexApi = require("../core/vtex-api");
 const shelfEngine = require("./shelf-engine");
 
-module.exports.html = (content, _path, index) => {
+module.exports.html = (content, _path) => {
     return new Promise((resolve, reject) => {
         fs.readFile(`${_path}/placeholders/${content.template}`, "utf8", (err, data) => {
+            content.html = data;
+            resolve(content);
+        });
+    })
+}
+
+module.exports.htmlCustomElement = (content) => {
+    return new Promise((resolve, reject) => {
+        fs.readFile(path.resolve(__dirname, `../custom-elements/${content.tagName}.html`), "utf8", (err, data) => {
             content.html = data;
             resolve(content);
         });
