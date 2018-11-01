@@ -43,7 +43,7 @@ const routes = [
         path: "/:department",
         template: "v1-department.html",
         controller: "department",
-        bodyClass: "home",
+        bodyClass: "department",
         get: async (req, res, next, route) => {
 
             try {

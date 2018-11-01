@@ -8,11 +8,22 @@
 
 <body>
     <!-- header -->
-    <vtex:metaTags/>
+    <vtex:metaTags />
     <vtex:template id="2018-v1-header" />
     <!-- end header -->
 
     <main>
+        <section id="root-banner">
+            <noscript class="placeholder">
+                <vtex:contentPlaceHolder id="Banner Principal" />
+            </noscript>
+        </section>
+
+        <section id="root-supporting-text">
+            <noscript class="placeholder">
+                <vtex:contentPlaceHolder id="Texto de apoio" />
+            </noscript>
+        </section>
         <!--init breadcrumb-->
         <!-- <div id="breadcrumb-ref" style="display:none">
            <vtex.cmc:breadCrumb />
