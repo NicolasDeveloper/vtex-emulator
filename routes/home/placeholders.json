@@ -47,9 +47,15 @@
         ]
     },
     {
-        "id": "Banner Ofertas",
-        "contents": [
-           
+        "id": "Produtos em ofertas",
+        "contents": [           
+            {
+                "id": "Promoção Relâmpago 31/09/2019 15:20:02",
+                "type": "collection",
+                "layout": "2018-default-shelf",
+                "collection": 164,
+                "items": 4
+            },
             {
                 "id": "banner 01",
                 "type": "banner",
@@ -69,16 +75,31 @@
         ]
     },
     {
-        "id": "Produtos em ofertas",
+        "id": "top avaliados",
         "contents": [           
             {
-                "id": "Promoção Relâmpago 31/09/2019 15:20:02",
+                "id": "top avaliados",
                 "type": "collection",
                 "layout": "2018-default-shelf",
                 "collection": 164,
                 "items": 20
+            },
+            {
+                "id": "banner 01",
+                "type": "banner",
+                "src": "/arquivos/banner-top-avaliados.png",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "banner 01 mobile",
+                "type": "banner",
+                "src": "/arquivos/banner-top-avaliados.png",
+                "href": "#",
+                "width": "200",
+                "height": "200"
             }
         ]
     }
-    
 ]
