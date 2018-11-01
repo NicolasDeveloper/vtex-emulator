@@ -15,23 +15,28 @@ const _buildTemplate = (product, _path) => {
             const categorie = categories[categories.length - 2];
             const department = categories[1];
 
+            const installment = seller && seller.commertialOffer.Installments[0];
+
             template = template.replace(/\$id/g, product.productId);
             template = template.replace(/\$product\.Name/g, product.productName);
             template = template.replace(/\$idSku/g, sku.itemId);
             template = template.replace(/\$product\.BrandName/g, product.brand);
             template = template.replace(/\$product\.CategoryName/g, categorie);
             template = template.replace(/\$product\.DepartmentName/g, department);
-            template = template.replace(/\$uri/g, product.link);
+            template = template.replace(/\$uri/g, product.link.replace("https://lojaprojetoverao.vtexcommercestable.com.br", ""));
             template = template.replace(/\$product\.BestPrice/g, seller ? seller.commertialOffer.Price.toString().replace(/\./g, ",") : "R$ 00,00");
             template = template.replace(/\$product\.ListPrice/g, seller ? seller.commertialOffer.ListPrice.toString().replace(/\./g, ",") : "R$ 00,00");
             template = template.replace(/\$product\.IsInStock/g, seller ? "True" : "False");
             template = template.replace(/\$product\.HasBestPrice/g, seller.commertialOffer.ListPrice > seller.commertialOffer.Price ? "True" : "False");
-            template = template.replace(/\$product\.NumbersOfInstallment/g, "3");
-            template = template.replace(/\$product\.InstallmentValue/g, "R$ 100");
+            template = template.replace(/\$product\.NumbersOfInstallment/g, installment && installment.NumberOfInstallments);
+            template = template.replace(/\$product\.InstallmentValue/g, installment && `R$ ${installment.Value.toString().replace(/\./, ",")}`);
             template = template.replace(/\$product\.DiscountHightLight/g, "");
-            template = template.replace(/\$product\.HightLight/g, "");
+            template = template.replace(/\$product\.HightLight/g, product.clusterHighlights && Object.keys(product.clusterHighlights).map((key, index) => {
+                const value = product.clusterHighlights[key];
+                return `<p class="flag ${value.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/\s/g, "-")}">${value}</p>`;
+            }).join(""));
             template = template.replace(/\$escapedName/g, "");
-            template = template.replace(/\$product\.GetImageTag\(30\)/g, sku.images[0].imageTag);
+            template = template.replace(/\$product\.GetImageTag\(30\)/g, sku.images[0].imageTag.replace("#width#-#height#", "500-323").replace("~", "http://lojaprojetoverao.com.br"));
             template = template.replace(/\$product\.BottomBuyAsynchronous/g, `
             <div class="wrapper-buy-button-asynchronous bba${product.productId}">
                 <input type="hidden" value="Produto incluído no carrinho" class="buy-button-asynchronous-product-message-success">
@@ -63,7 +68,7 @@ module.exports.parseTemplate = async (products, content) => {
     let list = [];
     let listitems = [];
     const coluns = content.coluns || 5;
-    const items = content.items || products.length;
+    const items = (!content.items || content.items > products.length) ? products.length : content.items;
 
     for (let index = 0; index < items; index++) {
 
