@@ -24,6 +24,16 @@ exports.listCategorys = async () => {
     });
 }
 
+exports.getOrderForm = async () => {
+	return new Promise((resolve, reject) => {
+        request(`http://${config.hostApi}/api/checkout/pub/orderForm`, (error, response, body) => {
+            if(!error && response.statusCode == 200 || response.statusCode == 206) {
+                resolve(JSON.parse(body));
+            }
+        });
+    });
+}
+
 exports.listBrand = async () => {
 	return new Promise((resolve, reject) => {
 

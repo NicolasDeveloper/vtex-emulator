@@ -45,5 +45,40 @@
                 "height": "200"
             }
         ]
+    },
+    {
+        "id": "Banner Ofertas",
+        "contents": [
+           
+            {
+                "id": "banner 01",
+                "type": "banner",
+                "src": "/arquivos/bg-ofertas.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "banner 01 mobile",
+                "type": "banner",
+                "src": "/arquivos/bg-ofertas.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            }
+        ]
+    },
+    {
+        "id": "Produtos em ofertas",
+        "contents": [           
+            {
+                "id": "coleção 01",
+                "type": "collection",
+                "layout": "2018-default-shelf",
+                "collection": 164,
+                "items": 5
+            }
+        ]
     }
+    
 ]

@@ -8,13 +8,28 @@
 
 <body>
     <!-- header -->
+    <vtex:metaTags/>
     <vtex:template id="2018-v1-header" />
     <!-- end header -->
 
     <main>
-        departamento
+        <!--init breadcrumb-->
+        <!-- <div id="breadcrumb-ref" style="display:none">
+           <vtex.cmc:breadCrumb />
+       </div> -->
+        <!--fim breadcrumb-->
+
+        <!-- init filters reference -->
+        <div class="filter-ref" style="display:none">
+            <vtex.cmc:singleDepartmentNavigator />
+            <vtex.cmc:advancedSearchFilter />
+            <vtex.cmc:searchNavigator />
+            <vtex.cmc:searchResult layout="5bb227bf-c1a0-404e-9a72-8ceaca092612" itemCount="9" columnCount="3"
+                showUnavailable="true" />
+        </div>
+        <!-- end filters reference -->
     </main>
-    
+
     <!-- footer -->
     <vtex:template id="2018-v1-footer" />
     <!-- end footer -->

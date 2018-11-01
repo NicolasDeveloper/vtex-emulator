@@ -55,15 +55,17 @@ const _buildTemplate = (product, _path) => {
     });
 }
 
-module.exports.parseTemplate = async (products, content, coluns = 5, items = 0) => {
+module.exports.parseTemplate = async (products, content) => {
 
     const _path = path.resolve(__dirname, `../shelves-template`);
 
     // build pagination of list and build template
     let list = [];
     let listitems = [];
+    const coluns = content.coluns || 5;
+    const items = content.items || products.length;
 
-    for (let index = 0; index < (items || products.length); index++) {
+    for (let index = 0; index < items; index++) {
 
         if (((index) % coluns) === 0 && index !== 0) {
             list.push(Object.assign(listitems, {}));

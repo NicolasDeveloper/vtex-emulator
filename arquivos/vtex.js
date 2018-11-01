@@ -342,7 +342,7 @@
                     url: this._getOrderFormURLWithId(),
                     type: 'POST',
                     headers: {
-                        "origin": "x-requested-with",
+                        "x-origin": "x-requested-with",
                     },
                     contentType: 'application/json; charset=utf-8',
                     dataType: 'json',
@@ -545,7 +545,7 @@
                 url: this._manualPriceURL(itemIndex),
                 type: 'PUT',
                 headers: {
-                    "origin": "x-requested-with",
+                    "x-origin": "x-requested-with",
                 },
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'json',
@@ -558,7 +558,7 @@
                 url: this._manualPriceURL(itemIndex),
                 type: 'DELETE',
                 headers: {
-                    "origin": "x-requested-with",
+                    "x-origin": "x-requested-with",
                 },
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'json'
@@ -698,7 +698,7 @@
                 url: this._getSimulationURL() + salesChannelQueryString,
                 type: 'POST',
                 headers: {
-                    "origin": "x-requested-with",
+                    "x-origin": "x-requested-with",
                 },
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'json',
@@ -756,7 +756,7 @@
                 url: this._getOrdersURL(orderGroupId),
                 type: 'GET',
                 headers: {
-                    "origin": "x-requested-with",
+                    "x-origin": "x-requested-with",
                 },
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'json'
@@ -775,7 +775,7 @@
                 url: this._getOrderFormURL() + '/messages/clear',
                 type: 'POST',
                 headers: {
-                    "origin": "x-requested-with",
+                    "x-origin": "x-requested-with",
                 },
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'json',
@@ -833,7 +833,7 @@
             if (cookie === void 0 || cookie === '') {
                 return void 0;
             }
-            return readSubcookie(cookie, COOKIE_ORDER_FORM_ID_KEY);
+            return readSubcookie(COOKIE_ORDER_FORM_ID_KEY, cookie);
         };
 
         Checkout.prototype._getOrderFormIdFromURL = function () {
