@@ -1,6 +1,6 @@
 [
     {
-        "id": "Banner Principal",
+        "id": "banner principal",
         "contents": [
             {
                 "id": "banner 01 conteúdo",
@@ -47,7 +47,7 @@
         ]
     },
     {
-        "id": "Produtos em ofertas",
+        "id": "produtos em ofertas",
         "contents": [           
             {
                 "id": "Promoção Relâmpago 31/09/2019 15:20:02",
@@ -100,6 +100,255 @@
                 "width": "200",
                 "height": "200"
             }
+        ]
+    },
+    {
+        "id": "navegacao por catalogo",
+        "contents": [     
+            {
+                "id": "Banner background conteúdo",
+                "type": "html",
+                "template": "banner-catalog-navigation.html"
+            },      
+            {
+                "id": "Banner background",
+                "type": "banner",
+                "src": "/arquivos/banner-catalog-navigation.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "Banner background mobile",
+                "type": "banner",
+                "src": "/arquivos/banner-catalog-navigation.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "Banner shampoo",
+                "type": "banner",
+                "src": "/arquivos/shampoo.png",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "Banner condicionador",
+                "type": "banner",
+                "src": "/arquivos/condicionador.png",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "Banner hidratacao",
+                "type": "banner",
+                "src": "/arquivos/hidratacao.png",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "Banner reconstrução",
+                "type": "banner",
+                "src": "/arquivos/reconstrucao.png",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            }
+        ]
+    },
+    {
+        "id": "lancamentos",
+        "contents": [           
+            {
+                "id": "lançamentos",
+                "type": "collection",
+                "layout": "2018-default-shelf",
+                "collection": 164,
+                "items": 20
+            },
+            {
+                "id": "banner 01",
+                "type": "banner",
+                "src": "/arquivos/lançamentos.png",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "banner 01 mobile",
+                "type": "banner",
+                "src": "/arquivos/lançamentos.png",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            }
+        ]
+    },
+    {
+        "id": "banners mosaico",
+        "contents": [           
+            {
+                "id": "Banner 01 conteúdo",
+                "type": "html",
+                "template": "banner-01-mosaico.html"
+            },      
+            {
+                "id": "Banner 01",
+                "type": "banner",
+                "src": "/arquivos/mosaic-04.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "Banner 01 mobile",
+                "type": "banner",
+                "src": "/arquivos/mosaic-04.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "Banner 02 conteúdo",
+                "type": "html",
+                "template": "banner-02-mosaico.html"
+            },      
+            {
+                "id": "Banner 02",
+                "type": "banner",
+                "src": "/arquivos/mosaic-02.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "Banner 02 mobile",
+                "type": "banner",
+                "src": "/arquivos/mosaic-02.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "Banner 03 conteúdo",
+                "type": "html",
+                "template": "banner-03-mosaico.html"
+            },      
+            {
+                "id": "Banner 03",
+                "type": "banner",
+                "src": "/arquivos/mosaic-03.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "Banner 03 mobile",
+                "type": "banner",
+                "src": "/arquivos/mosaic-03.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "Banner 04 conteúdo",
+                "type": "html",
+                "template": "banner-04-mosaico.html"
+            },      
+            {
+                "id": "Banner 04",
+                "type": "banner",
+                "src": "/arquivos/mosaic-04.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "Banner 04 mobile",
+                "type": "banner",
+                "src": "/arquivos/mosaic-04.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "Banner 05 conteúdo",
+                "type": "html",
+                "template": "banner-05-mosaico.html"
+            },      
+            {
+                "id": "Banner 05",
+                "type": "banner",
+                "src": "/arquivos/mosaic-05.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "Banner 05 mobile",
+                "type": "banner",
+                "src": "/arquivos/mosaic-05.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            }
+        ]
+    },
+    {
+        "id": "local da loja",
+        "contents": [     
+            {
+                "id": "Banner mapa",
+                "type": "banner",
+                "src": "/arquivos/maps-image.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "Banner mapa mobile",
+                "type": "banner",
+                "src": "/arquivos/maps-image.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "Banner 01",
+                "type": "banner",
+                "src": "/arquivos/store-front.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "Banner 02",
+                "type": "banner",
+                "src": "/arquivos/store-front.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "Banner 03",
+                "type": "banner",
+                "src": "/arquivos/store-front.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "Banner 04",
+                "type": "banner",
+                "src": "/arquivos/store-front.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            }            
         ]
     }
 ]
