@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 46.411 37.867">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #100f0f;
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fc3c53"/>
+      <stop offset="1" stop-color="#f46361"/>
+    </linearGradient>
+  </defs>
+  <g id="logo-mobile" transform="translate(-167.693 -35.067)">
+    <path id="Path_1078" data-name="Path 1078" class="cls-1" d="M12.8,4H45.768c0,2.94.178,33.59,0,33.59H41.224c-9.8,0-19.513.089-29.224.089v-25.3H37.839v17.2H20.375v-8.91H25.1v4.188h8.108V17.1H16.633v15.86H41.224V8.722H12.713a6.391,6.391,0,0,0,.535-2.584A9.148,9.148,0,0,0,12.8,4Z" transform="translate(168.256 35.254)"/>
+    <path id="Intersection_3" data-name="Intersection 3" class="cls-2" d="M2.2,10.994H10.27a6.237,6.237,0,0,1-8.067,0ZM1.148,9.844a6.219,6.219,0,0,1-.776-1.48H12.1a6.229,6.229,0,0,1-.776,1.48ZM.053,7.055A6.33,6.33,0,0,1,.035,5.576H12.44a6.344,6.344,0,0,1,.035.661,6.279,6.279,0,0,1-.053.818ZM.317,4.267a6.2,6.2,0,0,1,.722-1.479h10.4a6.209,6.209,0,0,1,.722,1.479ZM2.2,1.479a6.238,6.238,0,0,1,8.066,0Z" transform="translate(167.693 35.067)"/>
+  </g>
+</svg>

@@ -16,14 +16,6 @@
                 "height": "200"
             },
             {
-                "id": "banner 01 mobile",
-                "type": "banner",
-                "src": "/arquivos/banner-01.jpg",
-                "href": "#",
-                "width": "200",
-                "height": "200"
-            },
-            {
                 "id": "banner 02 conteúdo",
                 "type": "html",
                 "template": "banner-02-conteudo.html"
@@ -39,7 +31,7 @@
             {
                 "id": "banner 02 mobile",
                 "type": "banner",
-                "src": "/arquivos/banner-02.jpg",
+                "src": "/arquivos/banner-02-mobile.png",
                 "href": "#",
                 "width": "200",
                 "height": "200"
@@ -121,7 +113,7 @@
             {
                 "id": "Banner background mobile",
                 "type": "banner",
-                "src": "/arquivos/banner-catalog-navigation.jpg",
+                "src": "/arquivos/banner-catalog-navigation-mobile.png",
                 "href": "#",
                 "width": "200",
                 "height": "200"
@@ -349,6 +341,16 @@
                 "width": "200",
                 "height": "200"
             }            
+        ]
+    },
+    {
+        "id": "texto de apoio",
+        "contents": [     
+            {
+                "id": "texto de apoio",
+                "type": "html",
+                "template": "texto-de-apoio.html"
+            }              
         ]
     }
 ]
