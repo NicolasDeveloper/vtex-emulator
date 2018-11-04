@@ -20,6 +20,11 @@ const parseTemplate = (route) => {
     })
 }
 
+const parseTemplateWithMeta = async (route, title, description) => {
+    let content = await parseTemplate(route);
+    return await scriptParse.metaAllStore(title, description, content);
+}
+
 const routes = [
     {
         path: "/",
@@ -27,7 +32,7 @@ const routes = [
         controller: "home",
         bodyClass: "home",
         get: async (req, res, next, route) => {
-            return await parseTemplate(route);
+            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
         }
     },
     {
@@ -36,7 +41,7 @@ const routes = [
         controller: "sistema/404",
         bodyClass: "home",
         get: async (req, res, next, route) => {
-            return await parseTemplate(route);
+            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
         }
     },
     {
@@ -53,7 +58,7 @@ const routes = [
                 const category = await categoryService.getDepartment(categories, department);
                 
                 let content = await parseTemplate(route);
-                content = await scriptParse.department(category, content);
+                content = await scriptParse.metaDepartment(category, content);
 
                 return content;
                 
@@ -77,7 +82,7 @@ const routes = [
             //     next: true,
             // });
 
-            return await parseTemplate(route);
+            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
         }
     },
     {
@@ -92,7 +97,7 @@ const routes = [
             //     redirect: "sistema/404",
             // });
 
-            return await parseTemplate(route);
+            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
         }
     },
 ];

@@ -3,7 +3,7 @@ var express = require("express");
 var cookieParser = require('cookie-parser');
 var vtexApi = require("./core/vtex-api");
 
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 
 var app = express();
 app.use(cookieParser());

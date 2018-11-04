@@ -59,7 +59,7 @@
             {
                 "id": "banner 01 mobile",
                 "type": "banner",
-                "src": "/arquivos/bg-ofertas.jpg",
+                "src": "/arquivos/bg-ofertas-mobile.jpg",
                 "href": "#",
                 "width": "200",
                 "height": "200"
@@ -191,7 +191,7 @@
             {
                 "id": "Banner 01",
                 "type": "banner",
-                "src": "/arquivos/mosaic-04.jpg",
+                "src": "/arquivos/mosaic-01.jpg",
                 "href": "#",
                 "width": "200",
                 "height": "200"
@@ -199,7 +199,7 @@
             {
                 "id": "Banner 01 mobile",
                 "type": "banner",
-                "src": "/arquivos/mosaic-04.jpg",
+                "src": "/arquivos/mosaic-01.jpg",
                 "href": "#",
                 "width": "200",
                 "height": "200"

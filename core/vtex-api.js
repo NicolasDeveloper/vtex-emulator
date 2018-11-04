@@ -29,7 +29,9 @@ exports.getOrderForm = async () => {
         request(`http://${config.hostApi}/api/checkout/pub/orderForm`, (error, response, body) => {
             if(!error && response.statusCode == 200 || response.statusCode == 206) {
                 resolve(JSON.parse(body));
-            }
+            }else {
+				reject();
+			}
         });
     });
 }
