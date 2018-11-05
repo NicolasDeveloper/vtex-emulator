@@ -36,7 +36,7 @@ const _buildTemplate = (product, _path) => {
                 return `<p class="flag ${value.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/\s/g, "-")}">${value}</p>`;
             }).join(""));
             template = template.replace(/\$escapedName/g, "");
-            template = template.replace(/\$product\.GetImageTag\(30\)/g, sku.images[0].imageTag.replace("#width#-#height#", "500-323").replace("~", "//lojaprojetoverao.com.br"));
+            template = template.replace(/\$product\.GetImageTag\(30\)/g, sku.images[0].imageTag.replace("#width#-#height#", "500-323").replace("~", "//lojaprojetoverao.vteximg.com.br"));
             template = template.replace(/\$product\.BottomBuyAsynchronous/g, `
             <div class="wrapper-buy-button-asynchronous bba${product.productId}">
                 <input type="hidden" value="Produto incluído no carrinho" class="buy-button-asynchronous-product-message-success">
