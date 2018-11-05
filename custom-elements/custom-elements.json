@@ -3,5 +3,65 @@
         "name": "Regua Informativa",
         "tagName": "reguainformativa",
         "type": "html"
+    },
+    {
+        "name": "Primeiro Banner",
+        "tagName": "primeirobanner",
+        "id": "Primeiro Banner",
+        "type": "banner",
+        "src": "/arquivos/banner-navigation.png",
+        "href": "#",
+        "width": "200",
+        "height": "200"
+    },
+    {
+        "name": "Segundo Banner",
+        "tagName": "segundobanner",
+        "id": "Segundo Banner",
+        "type": "banner",
+        "src": "/arquivos/banner-navigation.png",
+        "href": "#",
+        "width": "200",
+        "height": "200"
+    },
+    {
+        "name": "Terceiro Banner",
+        "tagName": "terceirobanner",
+        "id": "Segundo Banner",
+        "type": "banner",
+        "src": "/arquivos/banner-navigation.png",
+        "href": "#",
+        "width": "200",
+        "height": "200"
+    },
+    {
+        "name": "Quarto Banner",
+        "tagName": "quartobanner",
+        "id": "Segundo Banner",
+        "type": "banner",
+        "src": "/arquivos/banner-navigation.png",
+        "href": "#",
+        "width": "200",
+        "height": "200"
+    },
+    {
+        "name": "Quinto Banner",
+        "tagName": "quintobanner",
+        "id": "Segundo Banner",
+        "type": "banner",
+        "src": "/arquivos/banner-navigation.png",
+        "href": "#",
+        "width": "200",
+        "height": "200"
+    },
+    {
+        "name": "Sexto Banner",
+        "tagName": "sextobanner",
+        "id": "Segundo Banner",
+        "type": "banner",
+        "src": "/arquivos/banner-navigation.png",
+        "href": "#",
+        "width": "200",
+        "height": "200"
     }
 ]
