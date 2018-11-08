@@ -23,7 +23,7 @@ const _buildTemplate = (product, _path) => {
             template = template.replace(/\$product\.BrandName/g, product.brand);
             template = template.replace(/\$product\.CategoryName/g, categorie);
             template = template.replace(/\$product\.DepartmentName/g, department);
-            template = template.replace(/\$uri/g, product.link.replace("//lojaprojetoverao.vtexcommercestable.com.br", ""));
+            template = template.replace(/\$uri/g, product.link.replace("https://lojaprojetoverao.vtexcommercestable.com.br", ""));
             template = template.replace(/\$product\.BestPrice/g, seller ? seller.commertialOffer.Price.toString().replace(/\./g, ",") : "R$ 00,00");
             template = template.replace(/\$product\.ListPrice/g, seller ? seller.commertialOffer.ListPrice.toString().replace(/\./g, ",") : "R$ 00,00");
             template = template.replace(/\$product\.IsInStock/g, seller ? "True" : "False");

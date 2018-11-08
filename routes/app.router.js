@@ -56,18 +56,33 @@ const routes = [
                 const department = req.params.department;
                 const categories = await vtexApi.listCategorys();
                 const category = await categoryService.getDepartment(categories, department);
-                
+
                 let content = await parseTemplate(route);
                 content = await scriptParse.metaDepartment(category, content);
 
                 return content;
-                
+
             } catch (error) {
                 throw ({
                     message: "Busca",
                     next: true,
                 });
             }
+        }
+    },
+    {
+        path: "/:productName/p",
+        template: "v1-product.html",
+        controller: "product",
+        bodyClass: "product",
+        get: async (req, res, next, route) => {
+
+            // let content = await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
+            let content = await parseTemplate(route);
+            const product = await vtexApi.getProductByUri(req.params.productName);
+            content = await scriptParse.productPage(product[0], content);
+
+            return content;
         }
     },
     {

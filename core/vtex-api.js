@@ -14,6 +14,16 @@ module.exports.getByCollection = (collectionId) => {
     });
 }
 
+module.exports.getProductByUri = (path) => {
+    return new Promise((resolve, reject) => {
+        request(`${searchApi}/${path}/p`, (error, response, body) => {
+            if(!error && response.statusCode == 200 || response.statusCode == 206) {
+                resolve(JSON.parse(body));
+            }
+        });
+    });
+}
+
 exports.listCategorys = async () => {
 	return new Promise((resolve, reject) => {
         request(`http://${config.hostApi}/api/catalog_system/pub/category/tree/3`, (error, response, body) => {
