@@ -17,9 +17,9 @@ const _buildTemplate = (product, _path) => {
 
             const installment = seller && seller.commertialOffer.Installments[0];
 
+            template = template.replace(/\$idSku/g, sku.itemId);
             template = template.replace(/\$id/g, product.productId);
             template = template.replace(/\$product\.Name/g, product.productName);
-            template = template.replace(/\$idSku/g, sku.itemId);
             template = template.replace(/\$product\.BrandName/g, product.brand);
             template = template.replace(/\$product\.CategoryName/g, categorie);
             template = template.replace(/\$product\.DepartmentName/g, department);
