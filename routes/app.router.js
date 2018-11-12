@@ -33,7 +33,15 @@ const routes = [
         path: "/no-cache/profileSystem/getProfile",
         get: async (req, res, next, route) => {
             
-            return JSON.stringify({"UserId":"0493fb49-c11a-4080-afff-a796505a9d9c","IsReturningUser":true,"IsUserDefined":true,"IsPJ":false,"FirstName":"Nicolas","LastName":"Silva dos Santos","Gender":null,"Email":"dev@vitrio.com.br"})
+            return {
+                "UserId":"0493fb49-c11a-4080-afff-a796505a9d9c",
+                "IsReturningUser":false,
+                "IsUserDefined":false,
+                "IsPJ":false,
+                "FirstName":"Nicolas",
+                "LastName":"Silva dos Santos",
+                "Gender":null,
+                "Email":"dev@vitrio.com.br"};
             
         }
     },
