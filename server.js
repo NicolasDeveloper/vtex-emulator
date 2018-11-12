@@ -2,7 +2,6 @@
 var express = require("express");
 var cookieParser = require('cookie-parser');
 var vtexApi = require("./core/vtex-api");
-
 var PORT = process.env.PORT || 3000;
 
 var app = express();
@@ -23,6 +22,8 @@ app.use(async (req, res, next) => {
 
     next();
 });
+
+
 
 routes.forEach(route => {
     app.get(route.path, async (req, res, next) => {

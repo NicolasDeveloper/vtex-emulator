@@ -7,11 +7,14 @@ var vtexApi = require("../core/vtex-api");
 var categoryService = require("../core/category-service");
 var scriptParse = require("../core/scripts-parse");
 
+
+
 const parseTemplate = (route) => {
     return new Promise((resolve, reject) => {
         fs.readFile(`./templates/${route.template}`, "utf8", async (err, data) => {
             let stringTemplate = data;
             stringTemplate = await template.parse(stringTemplate);
+            stringTemplate = await template.vtexId(stringTemplate);
             stringTemplate = await placeholder.parse(route.controller, stringTemplate);
             stringTemplate = await customelements.parse(stringTemplate);
             stringTemplate = await stringTemplate.replace("<body>", `<body class="${route.bodyClass}">`);
@@ -26,6 +29,14 @@ const parseTemplateWithMeta = async (route, title, description) => {
 }
 
 const routes = [
+    {
+        path: "/no-cache/profileSystem/getProfile",
+        get: async (req, res, next, route) => {
+            
+            return JSON.stringify({"UserId":"0493fb49-c11a-4080-afff-a796505a9d9c","IsReturningUser":true,"IsUserDefined":true,"IsPJ":false,"FirstName":"Nicolas","LastName":"Silva dos Santos","Gender":null,"Email":"dev@vitrio.com.br"})
+            
+        }
+    },
     {
         path: "/",
         template: "v1-home.html",

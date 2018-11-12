@@ -38,3 +38,21 @@ module.exports.parse = async (templateString) => {
     })
 }
 
+module.exports.vtexId = async (templateString) => {
+    return new Promise((resolve, reject) => {
+        const tags = templateString && templateString.match(/\<vtex\.cmc\:welcomeMessage \/\>/g);
+
+        if (tags) {
+            
+            const _path = path.resolve(__dirname, `../templates-config/vtexid.html`);
+
+            fs.readFile(_path, "utf8", (err, data) => {
+                templateString = templateString.replace(/\<vtex\.cmc\:welcomeMessage \/\>/g, data);
+
+                resolve(templateString);
+            });
+        }
+
+    })
+}
+
