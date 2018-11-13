@@ -6,7 +6,7 @@ var customelements = require("../core/customelement-parse");
 var vtexApi = require("../core/vtex-api");
 var categoryService = require("../core/category-service");
 var scriptParse = require("../core/scripts-parse");
-
+var categoryParse = require("../core/category-parser");
 
 
 const parseTemplate = (route) => {
@@ -32,17 +32,18 @@ const routes = [
     {
         path: "/no-cache/profileSystem/getProfile",
         get: async (req, res, next, route) => {
-            
+
             return {
-                "UserId":"0493fb49-c11a-4080-afff-a796505a9d9c",
-                "IsReturningUser":false,
-                "IsUserDefined":false,
-                "IsPJ":false,
-                "FirstName":"Nicolas",
-                "LastName":"Silva dos Santos",
-                "Gender":null,
-                "Email":"dev@vitrio.com.br"};
-            
+                "UserId": "0493fb49-c11a-4080-afff-a796505a9d9c",
+                "IsReturningUser": false,
+                "IsUserDefined": false,
+                "IsPJ": false,
+                "FirstName": "Nicolas",
+                "LastName": "Silva dos Santos",
+                "Gender": null,
+                "Email": "dev@vitrio.com.br"
+            };
+
         }
     },
     {
@@ -78,6 +79,7 @@ const routes = [
 
                 let content = await parseTemplate(route);
                 content = await scriptParse.metaDepartment(category, content);
+                content = await categoryParse.items(`${category.id}/`, content);
 
                 return content;
 
