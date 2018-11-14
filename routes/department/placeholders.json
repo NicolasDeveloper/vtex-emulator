@@ -45,5 +45,17 @@
                 "height": "200"
             }
         ]
+    },
+    {
+        "id": "Prateleira",
+        "contents": [           
+            {
+                "id": "Mais Vendidos",
+                "type": "collection",
+                "layout": "2018-default-shelf",
+                "collection": 164,
+                "items": 10
+            }
+        ]
     }
 ]
