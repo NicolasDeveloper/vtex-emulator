@@ -20,6 +20,7 @@ const _buildTemplate = (product, _path) => {
             template = template.replace(/\$idSku/g, sku.itemId);
             template = template.replace(/\$id/g, product.productId);
             template = template.replace(/\$product\.Name/g, product.productName);
+            template = template.replace(/\$product\.DescriptionShort/g, sku.complementName);
             template = template.replace(/\$product\.BrandName/g, product.brand);
             template = template.replace(/\$product\.CategoryName/g, categorie);
             template = template.replace(/\$product\.DepartmentName/g, department);
