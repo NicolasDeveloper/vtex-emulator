@@ -57,5 +57,15 @@
                 "items": 10
             }
         ]
+    },
+    {
+        "id": "Texto Sobre a Categoria",
+        "contents": [           
+            {   
+                "id": "conteúdo",
+                "type": "html",
+                "template": "texto-sobre-a-categoria.html"
+            }
+        ]
     }
 ]
