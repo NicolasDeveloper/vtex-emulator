@@ -107,8 +107,6 @@ module.exports.productPage = (product, templateHtml) => {
                 }]
             };
 
-            console.log(_product);
-
             const prod = JSON.stringify(_product);
             const script = data.replace(/\{\{skuJson\}\}/, prod);
 
