@@ -8,5 +8,15 @@
                 "template": "sobre-a-marca.html"
             }
         ]
+    },
+    {
+        "id": "texto de apoio",
+        "contents": [
+            {
+                "id": "texto de apoio",
+                "type": "html",
+                "template": "texto-de-apoio.html"
+            }
+        ]
     }
 ]
