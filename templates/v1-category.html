@@ -3,6 +3,7 @@
     lang="pt-br">
 
 <head>
+    <vtex:metaTags />
     <vtex:template id="2018-v1-head-tags" />
 </head>
 
@@ -12,9 +13,44 @@
     <!-- end header -->
 
     <main>
-        category
+        <section id="root-banner">
+            <noscript class="placeholder">
+                <vtex:contentPlaceHolder id="Banner Principal" />
+            </noscript>
+        </section>
+
+        <section id="root-supporting-text">
+            <noscript class="placeholder">
+                <vtex:contentPlaceHolder id="Texto de apoio" />
+            </noscript>
+        </section>
+        <!--init breadcrumb-->
+        <!-- <div id="breadcrumb-ref" style="display:none">
+           <vtex.cmc:breadCrumb />
+       </div> -->
+        <!--fim breadcrumb-->
+
+        <div id="root-department">
+            <noscript class="placeholder">
+                <vtex:contentPlaceHolder id="Prateleira" />
+            </noscript>
+        </div>
+
+        <div id="root-category-text">
+            <vtex:contentPlaceHolder id="Texto Sobre a Categoria" />
+        </div>
+
+        <!-- init filters reference -->
+        <div class="filter-ref" style="display:none">
+            <vtex.cmc:singleDepartmentNavigator />
+            <vtex.cmc:advancedSearchFilter />
+            <vtex.cmc:searchNavigator />
+            <vtex.cmc:searchResult layout="09bb1d4d-9e60-41f1-b944-ac05d8d3195a" itemCount="9" columnCount="3"
+                showUnavailable="true" />
+        </div>
+        <!-- end filters reference -->
     </main>
-    
+
     <!-- footer -->
     <vtex:template id="2018-v1-footer" />
     <!-- end footer -->

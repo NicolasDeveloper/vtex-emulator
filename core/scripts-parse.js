@@ -71,8 +71,8 @@ module.exports.productPage = (product, templateHtml) => {
 
             var sku = product.items[0];
             var seller = sku.sellers[0];
-            var installment = seller.commertialOffer.Installments[0];
-
+            var installment = seller.commertialOffer.Installments[0] || {};
+            
             const _product = {
                 "productId": parseInt(product.productId),
                 "name": product.productName,
@@ -89,12 +89,12 @@ module.exports.productPage = (product, templateHtml) => {
                     "available": seller.commertialOffer.AvailableQuantity > 0,
                     "availablequantity": seller.commertialOffer.AvailableQuantity,
                     "cacheVersionUsedToCallCheckout": seller.commertialOffer.CacheVersionUsedToCallCheckout,
-                    "listPriceFormated": `R$ ${seller.commertialOffer.ListPrice.toString().replace(/\./g, ",")}`,
-                    "listPrice": seller.commertialOffer.ListPrice,
+                    "listPriceFormated": `R$ ${seller.commertialOffer.ListPrice && seller.commertialOffer.ListPrice.toString().replace(/\./g, ",")}`,
+                    "listPrice": seller.commertialOffer.ListPrice && seller.commertialOffer.ListPrice,
                     "taxFormated": `R$ ${seller.commertialOffer.Tax.toString().replace(/\./g, ",")}`,
                     "taxAsInt": seller.commertialOffer.Tax,
                     "bestPriceFormated": `R$ ${seller.commertialOffer.Price.toString().replace(/\./g, ",")}`,
-                    "bestPrice": seller.commertialOffer.Price,
+                    "bestPrice": seller.commertialOffer.Price && seller.commertialOffer.Price,
                     "installments": installment.NumberOfInstallments,
                     "installmentsValue": installment.Value,
                     "installmentsInsterestRate": installment.InterestRate,
