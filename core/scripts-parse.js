@@ -128,7 +128,13 @@ module.exports.productPage = (product, templateHtml) => {
            
             templateHtml = templateHtml.replace("<vtex.cmc:productReference />", "");
             templateHtml = templateHtml.replace("<vtex.cmc:productImage />", "");
-            templateHtml = templateHtml.replace("<vtex.cmc:productName />", "");
+            templateHtml = templateHtml.replace("<vtex.cmc:productName />", `
+                <div class="fn productName  ${product.productName.replace(/\s+/g, "-")} ">${product.productName}</div>
+                <input id="___rc-p-id" type="hidden" value="${product.productId}" />
+                <input id="___rc-p-dv-id" type="hidden" value="${seller.commertialOffer.Price.toString().replace(/\./g, ",")}">
+                <input id="___rc-p-sku-ids" type="hidden" value="${sku.itemId}"/>
+                <input id="___rc-p-kit-ids" type="hidden" value=""/>
+            `);
             templateHtml = templateHtml.replace("<vtex.cmc:skuSelection />", "");
             templateHtml = templateHtml.replace("<vtex.cmc:skuPrice />", "");
             templateHtml = templateHtml.replace('<vtex.cmc:skuRichSelection changeImage="1" />', "");
