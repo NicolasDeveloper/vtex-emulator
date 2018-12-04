@@ -1,11 +1,11 @@
 [
     {
-        "id": "Banner Principal",
+        "id": "Banners Principais",
         "contents": [
             {
                 "id": "banner 01",
                 "type": "banner",
-                "src": "/arquivos/bg-v1-department.jpg",
+                "src": "/arquivos/banner-departamento-01.jpg",
                 "href": "#",
                 "width": "200",
                 "height": "200"
@@ -13,7 +13,23 @@
             {
                 "id": "banner 01 mobile",
                 "type": "banner",
-                "src": "/arquivos/bg-v1-department-mobile.png",
+                "src": "/arquivos/banner-departamento-01-mobile.png",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "banner 02",
+                "type": "banner",
+                "src": "/arquivos/banner-departamento-02.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "banner 02 mobile",
+                "type": "banner",
+                "src": "/arquivos/banner-departamento-02-mobile.png",
                 "href": "#",
                 "width": "200",
                 "height": "200"

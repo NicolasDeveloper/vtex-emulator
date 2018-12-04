@@ -63,5 +63,35 @@
         "href": "#",
         "width": "200",
         "height": "200"
+    },
+    {
+        "name": "Banner Promoção",
+        "tagName": "promotionbanner",
+        "id": "Banner Promoção",
+        "type": "banner",
+        "src": "/arquivos/banner-promocao.jpg",
+        "href": "#",
+        "width": "200",
+        "height": "200"
+    },
+    {
+        "name": "Banner Promoção Ativa",
+        "tagName": "activepromotionbanner",
+        "id": "Banner Promoção Ativa",
+        "type": "banner",
+        "src": "/arquivos/banner-active-promotion.jpg",
+        "href": "#",
+        "width": "200",
+        "height": "200"
+    },
+    {
+        "name": "Navegação Quarto Banner",
+        "tagName": "navigationquartobanner",
+        "id": "Navegação Quarto Banner",
+        "type": "banner",
+        "src": "/arquivos/navigation-quarto-banner.jpg",
+        "href": "#",
+        "width": "200",
+        "height": "200"
     }
 ]
