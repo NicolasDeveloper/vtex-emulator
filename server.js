@@ -2,15 +2,17 @@
 var express = require("express");
 var cookieParser = require('cookie-parser');
 var vtexApi = require("./core/vtex-api");
+var bodyParser = require('body-parser');
+var routes = require("./routes/app.router");
+
 var PORT = process.env.PORT || 3000;
 
 var app = express();
+
 app.use(cookieParser());
 app.use('/arquivos', express.static('arquivos'));
-
-var routes = require("./routes/app.router");
-
-
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 app.use(async (req, res, next) => {
 
     var cookie = req.cookies["checkout.vtex.com"];
@@ -23,10 +25,8 @@ app.use(async (req, res, next) => {
     next();
 });
 
-
-
 routes.forEach(route => {
-    app.get(route.path, async (req, res, next) => {
+    const process = async (req, res, next) => {
         try {
             const stringTemplate = await route.get(req, res, next, route);
             res.send(stringTemplate);
@@ -40,7 +40,11 @@ routes.forEach(route => {
                 res.redirect("/sistema/404");
             }
         }
-    });
+    }
+    app.get(route.path, process);
+    app.post(route.path, process);
+    app.put(route.path, process);
+    app.delete(route.path, process);
 });
 
 app.listen(PORT, () => {

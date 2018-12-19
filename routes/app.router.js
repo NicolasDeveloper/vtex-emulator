@@ -30,27 +30,39 @@ const parseTemplateWithMeta = async (route, title, description) => {
 
 const routes = [
     {
-        path: "/no-cache/profileSystem/getProfile",
+        path: "/no-cache/**",
         get: async (req, res, next, route) => {
-
-            return {
-                "UserId": "0493fb49-c11a-4080-afff-a796505a9d9c",
-                "IsReturningUser": false,
-                "IsUserDefined": false,
-                "IsPJ": false,
-                "FirstName": "Nicolas",
-                "LastName": "Silva dos Santos",
-                "Gender": null,
-                "Email": "dev@vitrio.com.br"
-            };
-
+            let resposnse = await vtexApi.proxyFormData(req.originalUrl, req);
+            return resposnse;
         }
+    },
+    {
+        path: "/api/vtexid/**",
+        get: async (req, res, next, route) => {
+            return "";
+        },
+    },
+    {
+        path: "/api/**",
+        get: async (req, res, next, route) => {
+            let resposnse = await vtexApi.proxy(req.originalUrl, req);
+            return resposnse;
+        },
     },
     {
         path: "/",
         template: "v1-home.html",
         controller: "home",
         bodyClass: "home",
+        get: async (req, res, next, route) => {
+            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
+        }
+    },
+    {
+        path: "/account",
+        template: "v1-account.html",
+        controller: "account",
+        bodyClass: "account",
         get: async (req, res, next, route) => {
             return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
         }
@@ -108,24 +120,39 @@ const routes = [
     },
     {
         path: "/:department/*",
-        template: "v1-category.html",
+        template: "v1-department.html",
         controller: "category",
-        bodyClass: "home",
+        bodyClass: "department category",
         get: async (req, res, next, route) => {
 
-            // throw ({
-            //     message: "Busca",
-            //     next: true,
-            // });
+            try {
 
-            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
+                const department = req.params.department;
+                const categoriespath = req.params['0'];
+                const categories = await vtexApi.listCategorys();
+
+                const _categories = await categoryService.getCategory(categories, department, categoriespath);
+
+                let content = await parseTemplate(route);
+
+                content = await scriptParse.metaCategory(_categories, content);
+                content = await categoryParse.items(_categories.map((category) => category.id).join("/"), content);
+
+                return content;
+
+            } catch (error) {
+                throw ({
+                    message: "Busca",
+                    next: true,
+                });
+            }
         }
     },
     {
         path: "/*",
         template: "v1-search.html",
         controller: "search",
-        bodyClass: "home",
+        bodyClass: "search",
         get: async (req, res, next, route) => {
 
             // throw ({
