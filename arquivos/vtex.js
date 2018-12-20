@@ -165,7 +165,7 @@
     Checkout = (function () {
         var HOST_URL, events;
 
-        HOST_URL = `http://${window.location.hostname}:${window.location.port}`;
+        HOST_URL = `//${window.location.hostname}:${window.location.port}`;
 
         events = {
             ORDER_FORM_UPDATED: 'orderFormUpdated.vtex',
