@@ -50,7 +50,7 @@ exports.getOrderForm = async () => {
 exports.proxy = (path, req) => {
 	return new Promise((resolve, reject) => {
 		var options = {
-			url: `http://lojaprojetoverao.vtexcommercestable.com.br${path}`,
+			url: `${req.protocol}://lojaprojetoverao.vtexcommercestable.com.br${path}`,
 			headers: {
 				'VtexIdclientAutCookie': req.cookies["VtexIdclientAutCookie_lojaprojetoverao"],
 				...req.headers
@@ -89,9 +89,9 @@ exports.proxy = (path, req) => {
 
 exports.proxyFormData = (path, req) => {
 	return new Promise((resolve, reject) => {
-
+		
 		var options = {
-			url: `http://lojaprojetoverao.vtexcommercestable.com.br${path}`,
+			url: `${req.protocol}://lojaprojetoverao.vtexcommercestable.com.br${path}`,
 			headers: {
 				'VtexIdclientAutCookie': req.cookies["VtexIdclientAutCookie_lojaprojetoverao"],
 				'Content-Type': "application/x-www-form-urlencoded",
