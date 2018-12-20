@@ -52,7 +52,7 @@
     Catalog = (function () {
         var HOST_URL;
 
-        HOST_URL = `${window.location.hostname}:${window.location.port}`;
+        HOST_URL = `//${window.location.hostname}:${window.location.port}`;
 
         function Catalog(options) {
             if (options == null) {
