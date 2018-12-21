@@ -2,8 +2,10 @@ const request = require("request");
 const http = require("http");
 const config = require("./config");
 const queryString = require('query-string');
+const fs = require('fs');
 
 const searchApi = "http://lojaprojetoverao.vtexcommercestable.com.br/api/catalog_system/pub/products/search";
+
 
 module.exports.getByCollection = (collectionId) => {
 	return new Promise((resolve, reject) => {
@@ -47,8 +49,9 @@ exports.getOrderForm = async () => {
 	});
 }
 
-exports.proxy = (path, req) => {
-	return new Promise((resolve, reject) => {
+exports.proxy = (path, req, res) => {
+	return new Promise(async (resolve, reject) => {
+
 		var options = {
 			url: `${req.protocol}://lojaprojetoverao.vtexcommercestable.com.br${path}`,
 			headers: {
@@ -56,6 +59,7 @@ exports.proxy = (path, req) => {
 				...req.headers
 			},
 			method: req.method,
+			
 		};
 
 		if (options.url.indexOf("/orderForm") > -1 || options.url.indexOf("/authentication") > -1) {
@@ -66,65 +70,60 @@ exports.proxy = (path, req) => {
 			};
 		}
 
-		if (req.body) {
-			options.body = JSON.stringify(req.body);
-		}
-
-		delete options.headers["accept"];
-		delete options.headers["accept-encoding"];
-		delete options.headers["accept-language"];
-		delete options.headers["host"];
-
-
-
-		request(options, (error, response, body) => {
-			if (!error && response.statusCode == 200 || response.statusCode == 206) {
-				resolve(JSON.parse(body));
-			} else {
-				reject();
+		if (req.headers["content-type"] && req.headers["content-type"].indexOf("application/x-www-form-urlencoded") > -1) {
+			const object = JSON.stringify(req.body);
+			if (object !== "{}") {
+				options.body = queryString.stringify(req.body);
 			}
-		});
-	});
-}
-
-exports.proxyFormData = (path, req) => {
-	return new Promise((resolve, reject) => {
-		
-		var options = {
-			url: `${req.protocol}://lojaprojetoverao.vtexcommercestable.com.br${path}`,
-			headers: {
-				'VtexIdclientAutCookie': req.cookies["VtexIdclientAutCookie_lojaprojetoverao"],
-				'Content-Type': "application/x-www-form-urlencoded",
-				...req.headers,
-			},
-			method: req.method,
-		};
-
-		const object = JSON.stringify(req.body);
-
-		if (object !== "{}") {
-			options.body = queryString.stringify(req.body);
 		}
 
-		if (options.url.indexOf("/orderForm") > -1 || options.url.indexOf("/authentication") > -1) {
-			options.headers = {
-				"X-VTEX-API-AppKey": config.appKey,
-				"X-VTEX-API-AppToken": config.appToken,
-			};
+		if (req.headers["content-type"] && req.headers["content-type"].indexOf("multipart/form-data") > -1) {
+			if (req.files) {
+
+				const formData = {};
+
+				Object.keys(req.files).forEach((file) => {
+
+
+					formData[file] = {
+						value: req.files[file].data,
+						options: {
+							filename: req.files[file].name,
+							contentType: req.files[file].mimetype
+						}
+					}
+				});
+
+				options.formData = formData;
+			}
+
+		}
+
+		if (req.headers["content-type"] && req.headers["content-type"].indexOf("application/json") > -1) {
+			if (req.body) {
+				options.body = JSON.stringify(req.body);
+			}
+		}
+
+		if (req.headers["accept"] && req.headers["accept"].indexOf("image/") > -1) {
+			if (req.body) {
+				options.encoding = null;
+			}
 		}
 
 		delete options.headers["accept"];
 		delete options.headers["accept-encoding"];
-		delete options.headers["accept-language"];
-		delete options.headers["host"];
-		delete options.headers["referer"];
 		delete options.headers["content-length"];
+		delete options.headers["accept-language"];
+		delete options.headers["referer"];
+		delete options.headers["host"];
+
 
 		request(options, (error, response, body) => {
-			if (!error && response.statusCode == 200 || response.statusCode == 206) {
+			if (!error && response.statusCode == 200 || response.statusCode == 206 || response.statusCode == 204) {
 				try {
 					resolve(JSON.parse(body));
-				} catch(error) {
+				} catch (error) {
 					resolve(body);
 				}
 			} else {
@@ -133,6 +132,7 @@ exports.proxyFormData = (path, req) => {
 		});
 	});
 }
+
 
 exports.listBrand = async () => {
 	return new Promise((resolve, reject) => {

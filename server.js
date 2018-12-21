@@ -4,6 +4,7 @@ var cookieParser = require('cookie-parser');
 var vtexApi = require("./core/vtex-api");
 var bodyParser = require('body-parser');
 var routes = require("./routes/app.router");
+var fileUpload = require('express-fileupload');
 
 var PORT = process.env.PORT || 3000;
 
@@ -13,6 +14,7 @@ app.use(cookieParser());
 app.use('/arquivos', express.static('arquivos'));
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+app.use(fileUpload());
 app.use(async (req, res, next) => {
 
     var cookie = req.cookies["checkout.vtex.com"];

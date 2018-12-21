@@ -32,7 +32,7 @@ const routes = [
     {
         path: "/no-cache/**",
         get: async (req, res, next, route) => {
-            let resposnse = await vtexApi.proxyFormData(req.originalUrl, req);
+            let resposnse = await vtexApi.proxy(req.originalUrl, req, res);
             return resposnse;
         }
     },
@@ -45,7 +45,7 @@ const routes = [
     {
         path: "/api/**",
         get: async (req, res, next, route) => {
-            let resposnse = await vtexApi.proxy(req.originalUrl, req);
+            let resposnse = await vtexApi.proxy(req.originalUrl, req, res);
             return resposnse;
         },
     },
