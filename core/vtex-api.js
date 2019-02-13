@@ -55,6 +55,8 @@ exports.proxy = (path, req, res) => {
 		var options = {
 			url: `${req.protocol}://lojaprojetoverao.vtexcommercestable.com.br${path}`,
 			headers: {
+				"X-VTEX-API-AppKey": config.appKey,
+				"X-VTEX-API-AppToken": config.appToken,
 				'VtexIdclientAutCookie': req.cookies["VtexIdclientAutCookie_lojaprojetoverao"],
 				...req.headers
 			},
