@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce"
-    lang="pt-br">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common"
+    xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-br">
 
 <head>
     <vtex:metaTags />
@@ -17,28 +17,32 @@
         <div id="root-top-product"></div>
         <div id="root-bottombar-product"></div>
         <div id="root-product"></div>
+        <div id="root-bottom-bar"></div>
+        <div id="root-buy-and-win"></div>
+        <div id="root-recomendations"></div>
+        <div id="root-description"></div>
+        <div id="root-nutritional"></div>
         <div id="root-product-bar"></div>
-        <section id="root-sobre-marca">
-            <vtex:contentPlaceHolder id="Sobre a marca" />
-        </section>
-        <div id="root-product-catalog"></div>
-
         <!-- Inicio Yourviews ANCORA-->
         <!-- Review e Q.A -->
-        <!-- <div id="avaliacoes">
+        <div id="root-avaliacoes">
             <div class="userReview">
-                <div class="yv-box yv-box-review">
-                    <h2 class="yv-title">Avaliações do Produto</h2>
+                <div id="root-evaluations" class="yv-box yv-box-review">
+                    <h2 class="yv-title">o que diz quem comprou<span class="featured">?</span></h2>
                     <div id="yv-reviews"></div>
                 </div>
-                <div class="yv-box yv-box-qa">
-                    <h2 class="yv-title">Dúvidas dos consumidores</h2>
+                <div id="root-doubts" class="yv-box yv-box-qa">
+                    <h2 class="yv-title">perguntas e respostas<span class="featured">.</span></h2>
                     <div class="yv-qa"></div>
                 </div>
             </div>
-        </div> -->
+        </div>
         <!-- Final Yourviews -->
-
+        <section id="root-sobre-marca">
+            <vtex:contentPlaceHolder id="Sobre a marca" />
+        </section>
+        <div id="root-who-saw-saw-to"></div>
+        <div id="root-who-bought-bought-to"></div>
         <div id="product-controls" style="display:none">
             <h1 id="product-reference">
                 <vtex.cmc:productReference />
@@ -83,6 +87,14 @@
     <!-- footer -->
     <vtex:template id="2018-v1-footer" />
     <!-- end footer -->
+    <style>
+        .product.active .yv-bootstrap p[itemprop=description]+div i.fa-star, .product.active .yv-bootstrap p[itemprop=description]+div i.fa-star-o {
+            width: 24px !important;
+            height: 24px !important;
+            border: 6px solid transparent !important;
+            margin-right: 8px !important;
+        }
+    </style>
 </body>
 
 </html>
