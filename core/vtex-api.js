@@ -55,8 +55,8 @@ exports.proxy = (path, req, res) => {
 		var options = {
 			url: `${req.protocol}://lojaprojetoverao.vtexcommercestable.com.br${path}`,
 			headers: {
-				"X-VTEX-API-AppKey": config.appKey,
-				"X-VTEX-API-AppToken": config.appToken,
+				// "X-VTEX-API-AppKey": config.appKey,
+				// "X-VTEX-API-AppToken": config.appToken,
 				'VtexIdclientAutCookie': req.cookies["VtexIdclientAutCookie_lojaprojetoverao"],
 				...req.headers
 			},
@@ -64,7 +64,7 @@ exports.proxy = (path, req, res) => {
 			
 		};
 
-		if (options.url.indexOf("/orderForm") > -1 || options.url.indexOf("/authentication") > -1) {
+		if (options.url.indexOf("/orderForm") > -1 || options.url.indexOf("/authentication") > -1 || options.url.indexOf("/brand") > -1) {
 			options.headers = {
 				"X-VTEX-API-AppKey": config.appKey,
 				"X-VTEX-API-AppToken": config.appToken,
