@@ -43,6 +43,13 @@ const routes = [
         },
     },
     {
+        path: "/buscaautocomplete/**",
+        get: async (req, res, next, route) => {
+            let resposnse = await vtexApi.proxy(req.originalUrl, req, res);
+            return resposnse;
+        },
+    },
+    {
         path: "/produto/**",
         get: async (req, res, next, route) => {
             let resposnse = await vtexApi.proxy(req.originalUrl, req, res);
