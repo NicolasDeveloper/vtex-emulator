@@ -100,6 +100,15 @@ const routes = [
         }
     },
     {
+        path: "/busca-vazia",
+        template: "v1-empty-search.html",
+        controller: "empty-search",
+        bodyClass: "empty-search",
+        get: async (req, res, next, route) => {
+            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
+        }
+    },
+    {
         path: "/sistema/404",
         template: "v1-404.html",
         controller: "sistema/404",
