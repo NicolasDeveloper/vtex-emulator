@@ -43,6 +43,13 @@ const routes = [
         },
     },
     {
+        path: "/buscaautocomplete/**",
+        get: async (req, res, next, route) => {
+            let resposnse = await vtexApi.proxy(req.originalUrl, req, res);
+            return resposnse;
+        },
+    },
+    {
         path: "/produto/**",
         get: async (req, res, next, route) => {
             let resposnse = await vtexApi.proxy(req.originalUrl, req, res);
@@ -93,10 +100,28 @@ const routes = [
         }
     },
     {
+        path: "/marcas",
+        template: "v1-brands.html",
+        controller: "brands",
+        bodyClass: "brands",
+        get: async (req, res, next, route) => {
+            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
+        }
+    },
+    {
         path: "/central-de-ajuda/pedidos",
         template: "v1-pedidos.html",
         controller: "/central-de-ajuda/pedidos",
         bodyClass: "institucional-pedidos",
+        get: async (req, res, next, route) => {
+            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
+        }
+    },
+    {
+        path: "/busca-vazia",
+        template: "v1-empty-search.html",
+        controller: "empty-search",
+        bodyClass: "empty-search",
         get: async (req, res, next, route) => {
             return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
         }

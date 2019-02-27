@@ -1,2 +1,12 @@
 [
+    {
+        "id": "texto de apoio",
+        "contents": [     
+            {
+                "id": "texto de apoio",
+                "type": "html",
+                "template": "texto-de-apoio.html"
+            }              
+        ]
+    }
 ]
