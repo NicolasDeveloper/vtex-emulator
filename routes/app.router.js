@@ -100,19 +100,46 @@ const routes = [
         }
     },
     {
-        path: "/marcas",
-        template: "v1-brands.html",
-        controller: "brands",
-        bodyClass: "brands",
+        path: "/central-de-ajuda/pedidos",
+        template: "v1-institucionais.html",
+        controller: "/central-de-ajuda/pedidos",
+        bodyClass: "institucional-pedidos",
         get: async (req, res, next, route) => {
             return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
         }
     },
     {
-        path: "/central-de-ajuda/pedidos",
-        template: "v1-pedidos.html",
-        controller: "/central-de-ajuda/pedidos",
-        bodyClass: "institucional-pedidos",
+        path: "/central-de-ajuda/entrega",
+        template: "v1-institucionais.html",
+        controller: "/central-de-ajuda/entrega",
+        bodyClass: "institucional-entrega",
+        get: async (req, res, next, route) => {
+            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
+        }
+    },
+    {
+        path: "/central-de-ajuda/trocas-e-devolucoes",
+        template: "v1-institucionais.html",
+        controller: "/central-de-ajuda/trocas-e-devolucoes",
+        bodyClass: "institucional-trocas",
+        get: async (req, res, next, route) => {
+            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
+        }
+    },
+    {
+        path: "/central-de-ajuda/pagamento",
+        template: "v1-institucionais.html",
+        controller: "/central-de-ajuda/pagamento",
+        bodyClass: "institucional-pagamento",
+        get: async (req, res, next, route) => {
+            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
+        }
+    },
+    {
+        path: "/marcas",
+        template: "v1-brands.html",
+        controller: "brands",
+        bodyClass: "brands",
         get: async (req, res, next, route) => {
             return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
         }
