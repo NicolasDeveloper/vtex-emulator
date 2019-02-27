@@ -84,6 +84,24 @@ const routes = [
         }
     },
     {
+        path: "/central-de-ajuda",
+        template: "v1-central-de-ajuda.html",
+        controller: "/central-de-ajuda",
+        bodyClass: "central-de-ajuda",
+        get: async (req, res, next, route) => {
+            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
+        }
+    },
+    {
+        path: "/central-de-ajuda/pedidos",
+        template: "v1-pedidos.html",
+        controller: "/central-de-ajuda/pedidos",
+        bodyClass: "institucional-pedidos",
+        get: async (req, res, next, route) => {
+            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
+        }
+    },
+    {
         path: "/sistema/404",
         template: "v1-404.html",
         controller: "sistema/404",

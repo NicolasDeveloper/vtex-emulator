@@ -1,5 +1,10 @@
 [
     {
+        "name": "Passos Ajuda",
+        "tagName": "passosajuda",
+        "type": "html"
+    },
+    {
         "name": "Regua Informativa",
         "tagName": "reguainformativa",
         "type": "html"
