@@ -129,7 +129,7 @@ exports.proxy = (path, req, res) => {
 					resolve(body);
 				}
 			} else {
-				reject();
+				reject(response);
 			}
 		});
 	});

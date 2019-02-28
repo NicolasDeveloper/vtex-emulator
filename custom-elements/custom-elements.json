@@ -10,6 +10,11 @@
         "type": "html"
     },
     {
+        "name": "Listagem Menu Desk",
+        "tagName": "navigationdesk",
+        "type": "html"
+    },
+    {
         "name": "Primeiro Banner",
         "tagName": "primeirobanner",
         "id": "Primeiro Banner",
