@@ -33,7 +33,12 @@ routes.forEach(route => {
             const stringTemplate = await route.get(req, res, next, route);
             res.send(stringTemplate);
         } catch (error) {
-
+            
+            if (error.statusCode == 401) {
+                res.send("não autorizado");
+                return;
+            }
+            
             if (error.next) {
                 next();
             }
