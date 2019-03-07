@@ -1,0 +1,512 @@
+[
+    {
+        "id": "banner principal",
+        "contents": [
+            {
+                "id": "banner main 01",
+                "type": "banner",
+                "src": "/arquivos/objective.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "banner main 01 mobile",
+                "type": "banner",
+                "src": "/arquivos/banner-02-mobile.png",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "banner main 02",
+                "type": "banner",
+                "src": "/arquivos/objective-2.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "banner main 02 mobile",
+                "type": "banner",
+                "src": "/arquivos/banner-02-mobile.png",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            }
+        ]
+    },
+    {
+        "id": "banner duplo 01",
+        "contents": [
+            {
+                "id": "primeiro banner",
+                "type": "banner",
+                "src": "/arquivos/musculos.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "primeiro banner mobile",
+                "type": "banner",
+                "src": "/arquivos/musculos.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "segundo banner",
+                "type": "banner",
+                "src": "/arquivos/cabelos-unhas.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "segundo banner mobile",
+                "type": "banner",
+                "src": "/arquivos/cabelos-unhas.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            }
+        ]
+    },
+    {
+        "id": "banner duplo 02",
+        "contents": [
+            {
+                "id": "primeiro banner",
+                "type": "banner",
+                "src": "/arquivos/gestao-peso.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "primeiro banner mobile",
+                "type": "banner",
+                "src": "/arquivos/gestao-peso.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "segundo banner",
+                "type": "banner",
+                "src": "/arquivos/cerebro-memoria.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "segundo banner mobile",
+                "type": "banner",
+                "src": "/arquivos/cerebro-memoria.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            }
+        ]
+    },
+    {
+        "id": "banner duplo 03",
+        "contents": [
+            {
+                "id": "primeiro banner",
+                "type": "banner",
+                "src": "/arquivos/saude-olhos.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "primeiro banner mobile",
+                "type": "banner",
+                "src": "/arquivos/saude-olhos.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "segundo banner",
+                "type": "banner",
+                "src": "/arquivos/excesso-acucar.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "segundo banner mobile",
+                "type": "banner",
+                "src": "/arquivos/excesso-acucar.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            }
+        ]
+    },
+    {
+        "id": "banner duplo 04",
+        "contents": [
+            {
+                "id": "primeiro banner",
+                "type": "banner",
+                "src": "/arquivos/apoio-cardio.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "primeiro banner mobile",
+                "type": "banner",
+                "src": "/arquivos/apoio-cardio.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "segundo banner",
+                "type": "banner",
+                "src": "/arquivos/limpeza-detox.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "segundo banner mobile",
+                "type": "banner",
+                "src": "/arquivos/limpeza-detox.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            }
+        ]
+    },
+    {
+        "id": "banner middle",
+        "contents": [
+            {
+                "id": "primeiro banner",
+                "type": "banner",
+                "src": "/arquivos/saude-digestiva.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "primeiro banner mobile",
+                "type": "banner",
+                "src": "/arquivos/banner-02-mobile.png",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            }
+        ]
+    },
+    
+    {
+        "id": "banner duplo 05",
+        "contents": [
+            {
+                "id": "primeiro banner",
+                "type": "banner",
+                "src": "/arquivos/humor.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "primeiro banner mobile",
+                "type": "banner",
+                "src": "/arquivos/humor.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "segundo banner",
+                "type": "banner",
+                "src": "/arquivos/controle-stress.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "segundo banner mobile",
+                "type": "banner",
+                "src": "/arquivos/controle-stress.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            }
+        ]
+    },
+    
+    {
+        "id": "banner duplo 06",
+        "contents": [
+            {
+                "id": "primeiro banner",
+                "type": "banner",
+                "src": "/arquivos/suporte-osseo.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "primeiro banner mobile",
+                "type": "banner",
+                "src": "/arquivos/suporte-osseo.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "segundo banner",
+                "type": "banner",
+                "src": "/arquivos/bem-estar-intimo.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "segundo banner mobile",
+                "type": "banner",
+                "src": "/arquivos/bem-estar-intimo.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            }
+        ]
+    },
+    
+    {
+        "id": "banner duplo 07",
+        "contents": [
+            {
+                "id": "primeiro banner",
+                "type": "banner",
+                "src": "/arquivos/saude-homens.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "primeiro banner mobile",
+                "type": "banner",
+                "src": "/arquivos/saude-homens.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "segundo banner",
+                "type": "banner",
+                "src": "/arquivos/energia.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "segundo banner mobile",
+                "type": "banner",
+                "src": "/arquivos/energia.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            }
+        ]
+    },
+    
+    {
+        "id": "banner duplo 08",
+        "contents": [
+            {
+                "id": "primeiro banner",
+                "type": "banner",
+                "src": "/arquivos/ajuda-sono.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "primeiro banner mobile",
+                "type": "banner",
+                "src": "/arquivos/ajuda-sono.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "segundo banner",
+                "type": "banner",
+                "src": "/arquivos/ganho-peso.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "segundo banner mobile",
+                "type": "banner",
+                "src": "/arquivos/ganho-peso.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            }
+        ]
+    },
+    
+    {
+        "id": "banner duplo 09",
+        "contents": [
+            {
+                "id": "primeiro banner",
+                "type": "banner",
+                "src": "/arquivos/alimentacao-saudavel.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "primeiro banner mobile",
+                "type": "banner",
+                "src": "/arquivos/alimentacao-saudavel.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "segundo banner",
+                "type": "banner",
+                "src": "/arquivos/treino.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "segundo banner mobile",
+                "type": "banner",
+                "src": "/arquivos/treino.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            }
+        ]
+    },
+    
+    {
+        "id": "banner duplo 10",
+        "contents": [
+            {
+                "id": "primeiro banner",
+                "type": "banner",
+                "src": "/arquivos/fortalecer-imunidade.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "primeiro banner mobile",
+                "type": "banner",
+                "src": "/arquivos/fortalecer-imunidade.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "segundo banner",
+                "type": "banner",
+                "src": "/arquivos/peso-gravidez.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "segundo banner mobile",
+                "type": "banner",
+                "src": "/arquivos/peso-gravidez.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            }
+        ]
+    },
+    
+    {
+        "id": "banner duplo 11",
+        "contents": [
+            {
+                "id": "primeiro banner",
+                "type": "banner",
+                "src": "/arquivos/terapia-alternativas.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "primeiro banner mobile",
+                "type": "banner",
+                "src": "/arquivos/terapia-alternativas.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "segundo banner",
+                "type": "banner",
+                "src": "/arquivos/saude-criancas.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "segundo banner mobile",
+                "type": "banner",
+                "src": "/arquivos/saude-criancas.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            }
+        ]
+    },
+    
+    {
+        "id": "banner duplo 12",
+        "contents": [
+            {
+                "id": "primeiro banner",
+                "type": "banner",
+                "src": "/arquivos/para-pet.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "primeiro banner mobile",
+                "type": "banner",
+                "src": "/arquivos/para-pet.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "segundo banner",
+                "type": "banner",
+                "src": "/arquivos/endurance.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "segundo banner mobile",
+                "type": "banner",
+                "src": "/arquivos/endurance.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            }
+        ]
+    }
+]
