@@ -3,9 +3,14 @@
         "id": "Banner Principal",
         "contents": [
             {
+                "id": "Banner 01 conteúdo",
+                "type": "html",
+                "template": "banner-01-conteudo.html"
+            },   
+            {
                 "id": "banner 01",
                 "type": "banner",
-                "src": "/arquivos/bg-v1-department.jpg",
+                "src": "/arquivos/banner-categoria.jpg",
                 "href": "#",
                 "width": "200",
                 "height": "200"
