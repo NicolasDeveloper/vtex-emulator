@@ -15,6 +15,11 @@
         "type": "html"
     },
     {
+        "name": "Reviews Content",
+        "tagName": "reviewscontent",
+        "type": "html"
+    },
+    {
         "name": "Primeiro Banner",
         "tagName": "primeirobanner",
         "id": "Primeiro Banner",
