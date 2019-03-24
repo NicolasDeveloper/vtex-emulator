@@ -20,6 +20,11 @@
         "type": "html"
     },
     {
+        "name": "Letreiro Promoção",
+        "tagName": "letreiropromocao",
+        "type": "html"
+    },
+    {
         "name": "Primeiro Banner",
         "tagName": "primeirobanner",
         "id": "Primeiro Banner",
