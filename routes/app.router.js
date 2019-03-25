@@ -73,6 +73,20 @@ const routes = [
         }
     },
     {
+        path: "/promocao-relampago",
+        template: "v1-department.html",
+        controller: "promocao-relampago",
+        bodyClass: "department",
+        get: async (req, res, next, route) => {
+            
+            let content = await parseTemplate(route);
+            content = await scriptParse.metaCollection(164, content);
+            content = await categoryParse.itemsCollection(164, content);
+
+            return content;
+        }
+    },
+    {
         path: "/account",
         template: "v1-account.html",
         controller: "account",
@@ -86,6 +100,15 @@ const routes = [
         template: "v1-personal.html",
         controller: "personal",
         bodyClass: "personal",
+        get: async (req, res, next, route) => {
+            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
+        }
+    },
+    {
+        path: "/promocoes",
+        template: "v1-promotions.html",
+        controller: "promotions",
+        bodyClass: "promotions",
         get: async (req, res, next, route) => {
             return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
         }

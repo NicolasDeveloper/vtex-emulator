@@ -1,0 +1,71 @@
+[
+    {
+        "id": "Banner Principal",
+        "contents": [
+            {
+                "id": "banner 01 28/03/2019 19:58:00",
+                "type": "banner",
+                "src": "/arquivos/bg-ofertas.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "banner 01 28/03/2019 19:58:00 mobile ",
+                "type": "banner",
+                "src": "/arquivos/bg-ofertas-mobile.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            }
+        ]
+    },
+    {
+        "id": "Texto de apoio",
+        "contents": [
+            {   
+                "id": "icone conteúdo",
+                "type": "html",
+                "template": "texto-de-apoio.html"
+            },
+            {
+                "id": "icone",
+                "type": "banner",
+                "src": "/arquivos/bg-texto-de-apoio.png",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "icone mobile",
+                "type": "banner",
+                "src": "/arquivos/bg-texto-de-apoio.png",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            }
+        ]
+    },
+    {
+        "id": "Prateleira",
+        "contents": [           
+            {
+                "id": "Mais Vendidos",
+                "type": "collection",
+                "layout": "2018-default-shelf",
+                "collection": 164,
+                "items": 10
+            }
+        ]
+    },
+    {
+        "id": "Texto Sobre a Categoria",
+        "contents": [           
+            {   
+                "id": "conteúdo",
+                "type": "html",
+                "template": "texto-sobre-a-categoria.html"
+            }
+        ]
+    }
+]

@@ -20,8 +20,13 @@
         "type": "html"
     },
     {
+<<<<<<< HEAD
         "name": "site map",
         "tagName": "sitemapnavigation",
+=======
+        "name": "Letreiro Promoção",
+        "tagName": "letreiropromocao",
+>>>>>>> 8dbd5e0fdc419039601c6607786de5c605e028da
         "type": "html"
     },
     {
