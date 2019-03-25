@@ -172,6 +172,15 @@ const routes = [
         }
     },
     {
+        path: "/mapa-do-site",
+        template: "v1-site-map.html",
+        controller: "site-map",
+        bodyClass: "site-map",
+        get: async (req, res, next, route) => {
+            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
+        }
+    },
+    {
         path: "/:department",
         template: "v1-department.html",
         controller: "department",

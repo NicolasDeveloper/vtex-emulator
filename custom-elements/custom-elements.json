@@ -20,6 +20,11 @@
         "type": "html"
     },
     {
+        "name": "site map",
+        "tagName": "sitemapnavigation",
+        "type": "html"
+    },
+    {
         "name": "Primeiro Banner",
         "tagName": "primeirobanner",
         "id": "Primeiro Banner",
