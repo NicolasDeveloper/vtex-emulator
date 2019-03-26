@@ -204,6 +204,15 @@ const routes = [
         }
     },
     {
+        path: "/quem-somos",
+        template: "v1-quem-somos.html",
+        controller: "quem-somos",
+        bodyClass: "quem-somos",
+        get: async (req, res, next, route) => {
+            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
+        }
+    },
+    {
         path: "/:department",
         template: "v1-department.html",
         controller: "department",
