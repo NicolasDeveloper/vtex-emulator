@@ -10,7 +10,7 @@
             {
                 "id": "banner-main",
                 "type": "banner",
-                "src": "/arquivos/banner-quem-somos.png",
+                "src": "/arquivos/banner-quem-somos-white.jpg",
                 "href": "#",
                 "width": "200",
                 "height": "200"
@@ -18,7 +18,7 @@
             {
                 "id": "banner-main mobile",
                 "type": "banner",
-                "src": "/arquivos/banner-quem-somos.png",
+                "src": "/arquivos/banner-quem-somos-white.jpg",
                 "href": "#",
                 "width": "200",
                 "height": "200"
