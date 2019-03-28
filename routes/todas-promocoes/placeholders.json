@@ -1,0 +1,46 @@
+[
+    {
+        "id": "todas as promoções",
+        "contents": [
+            {   
+                "id": "cupons conteúdo",
+                "type": "html",
+                "template": "cupons-conteudo.html"
+            },
+            {
+                "id": "cupons",
+                "type": "banner",
+                "src": "/arquivos/banner-departamento-01.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {   
+                "id": "compra coletiva conteúdo",
+                "type": "html",
+                "template": "compra-coletiva-conteudo.html"
+            },
+            {
+                "id": "compra coletiva",
+                "type": "banner",
+                "src": "/arquivos/banner-departamento-01.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {   
+                "id": "ofertas relâmpago conteúdo",
+                "type": "html",
+                "template": "ofertas-conteudo.html"
+            },
+            {
+                "id": "ofertas relâmpago",
+                "type": "banner",
+                "src": "/arquivos/banner-departamento-01.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            }
+        ]
+    }
+]

@@ -114,6 +114,15 @@ const routes = [
         }
     },
     {
+        path: "/todas-promocoes",
+        template: "v1-todas-promocoes.html",
+        controller: "todas-promocoes",
+        bodyClass: "todas-promocoes",
+        get: async (req, res, next, route) => {
+            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
+        }
+    },
+    {
         path: "/central-de-ajuda",
         template: "v1-central-de-ajuda.html",
         controller: "/central-de-ajuda",
