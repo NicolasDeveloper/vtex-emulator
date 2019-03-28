@@ -1,0 +1,85 @@
+[
+    {
+        "id": "todas as promoções",
+        "contents": [
+            {   
+                "id": "titulo",
+                "type": "html",
+                "template": "title-todas-promocoes.html"
+            },
+            {   
+                "id": "cupons conteúdo",
+                "type": "html",
+                "template": "cupons-conteudo.html"
+            },
+            {
+                "id": "cupons",
+                "type": "banner",
+                "src": "/arquivos/bg-promocao-white.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {   
+                "id": "compra coletiva conteúdo",
+                "type": "html",
+                "template": "compra-coletiva-conteudo.html"
+            },
+            {
+                "id": "compra coletiva",
+                "type": "banner",
+                "src": "/arquivos/bg-promocao-white.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {   
+                "id": "ofertas relâmpago conteúdo",
+                "type": "html",
+                "template": "ofertas-conteudo.html"
+            },
+            {
+                "id": "ofertas relâmpago",
+                "type": "banner",
+                "src": "/arquivos/bg-oferta-promocao-relampago.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            }
+        ]
+    },
+    {
+        "id": "promoções inativas",
+        "contents": [
+            {   
+                "id": "titulo",
+                "type": "html",
+                "template": "title-promocoes-inativas.html"
+            },
+            {
+                "id": "inativo1",
+                "type": "banner",
+                "src": "/arquivos/bg-promotion-yellow.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "inativo2 coletiva",
+                "type": "banner",
+                "src": "/arquivos/bg-promotion-green.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            },
+            {
+                "id": "inativo3 relâmpago",
+                "type": "banner",
+                "src": "/arquivos/bg-promotion-black.jpg",
+                "href": "#",
+                "width": "200",
+                "height": "200"
+            }
+        ]
+    }
+]

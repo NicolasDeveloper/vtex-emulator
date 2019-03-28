@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common"
+    xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-br">
+
+<head>
+    <vtex:metaTags />
+    <vtex:template id="2018-v1-head-tags" />
+</head>
+
+<body>
+    <!-- header -->
+    <vtex:template id="2018-v1-header" />
+    <!-- end header -->
+    <vtex.cmc:letreiropromocao />
+    <main>
+        <div id="root-rule"></div>
+        <div id="root-breadcrumb"></div>
+        <div id="root-all-promotions">
+            <noscript class="placeholder">
+                <vtex:contentPlaceHolder id="todas as promoções" />
+            </noscript>
+        </div>
+        <div id="root-promotions-inactive">
+            <noscript  class="placeholder">
+                <vtex:contentPlaceHolder id="promoções inativas" />
+            </noscript>
+        </div>
+    </main>
+    <!-- footer -->
+    <vtex:template id="2018-v1-footer" />
+    <!-- end footer -->
+</body>
+
+</html>
