@@ -6881,7 +6881,13 @@ exports.proxy = (path, req, res) => {
 
 		};
 
-		if (options.url.indexOf("/masterdata") > -1 || options.url.indexOf("/orderForm") > -1 || options.url.indexOf("/authentication") > -1 || options.url.indexOf("/brand") > -1) {
+		if (
+			options.url.indexOf("/masterdata") > -1 || 
+			options.url.indexOf("/orderForm") > -1 || 
+			options.url.indexOf("/authentication") > -1 || 
+			options.url.indexOf("/brand") > -1 ||
+			options.url.indexOf("/pvt") > -1) {
+			
 			options.headers = {
 				"X-VTEX-API-AppKey": config.appKey,
 				"X-VTEX-API-AppToken": config.appToken,
