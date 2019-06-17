@@ -1,5 +1,6 @@
 const path = require("path");
 const fs = require("fs");
+const config = require("./store.config");
 
 
 const replaceMetaTags = (meta = {}) => {
@@ -15,7 +16,7 @@ const replaceMetaTags = (meta = {}) => {
             template = template.replace(/\{\{categoryName\}\}/g, meta.categoryName || "");
             template = template.replace(/\{\{departmentyId\}\}/g, meta.departmentyId || "");
             template = template.replace(/\{\{departmentName\}\}/g, meta.departmentName || "");
-
+            template = template.replace(/\{\{store\}\}/, config.STORE);
             resolve(template);
         });
     })
@@ -34,7 +35,7 @@ module.exports.metaDepartment = (category, templateHtml) => {
             template = template.replace(/\{\{categoryName\}\}/g, category.name);
             template = template.replace(/\{\{departmentyId\}\}/g, category.id);
             template = template.replace(/\{\{departmentName\}\}/g, category.name);
-
+            template = template.replace(/\{\{store\}\}/, config.STORE);
             templateHtml = templateHtml.replace("<vtex:metaTags />", template);
 
             resolve(templateHtml);
@@ -55,7 +56,7 @@ module.exports.metaCollection = (category, templateHtml) => {
             template = template.replace(/\{\{categoryName\}\}/g, "");
             template = template.replace(/\{\{departmentyId\}\}/g, "");
             template = template.replace(/\{\{departmentName\}\}/g, "");
-
+            template = template.replace(/\{\{store\}\}/, config.STORE);
             templateHtml = templateHtml.replace("<vtex:metaTags />", template);
 
             resolve(templateHtml);
@@ -97,7 +98,7 @@ module.exports.metaAllStore = (title, description, templateHtml) => {
             template = template.replace(/\{\{categoryName\}\}/g, "");
             template = template.replace(/\{\{departmentyId\}\}/g, "");
             template = template.replace(/\{\{departmentName\}\}/g, "");
-
+            template = template.replace(/\{\{store\}\}/g, config.STORE);
             templateHtml = templateHtml.replace("<vtex:metaTags />", template);
 
             resolve(templateHtml);
@@ -150,7 +151,9 @@ module.exports.productPage = (product, templateHtml) => {
             };
 
             const prod = JSON.stringify(_product);
-            const script = data.replace(/\{\{skuJson\}\}/, prod);
+            let script = data.replace(/\{\{skuJson\}\}/, prod);
+            script = script.replace(/\{\{store\}\}/, config.STORE);
+            
 
             const categories = product.categories[0].split(/\//g);
             const categoriesIds = product.categoriesIds[0].split(/\//g);

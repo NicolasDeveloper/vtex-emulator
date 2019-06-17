@@ -8,7 +8,6 @@ var categoryService = require("../core/category-service");
 var scriptParse = require("../core/scripts-parse");
 var categoryParse = require("../core/category-parser");
 
-
 const parseTemplate = (route) => {
     return new Promise((resolve, reject) => {
         fs.readFile(`./templates/${route.template}`, "utf8", async (err, data) => {
@@ -28,13 +27,19 @@ const parseTemplateWithMeta = async (route, title, description) => {
     return await scriptParse.metaAllStore(title, description, content);
 }
 
+const customRouter =  async (req, res, next, route) => {
+    return await parseTemplateWithMeta(route, "Vtex Emulador", "Development mode");
+}
+
+const proxyRouter = async (req, res, next, route) => {
+    let resposnse = await vtexApi.proxy(req.originalUrl, req, res);
+    return resposnse;
+}
+
 const routes = [
     {
         path: "/no-cache/**",
-        get: async (req, res, next, route) => {
-            let resposnse = await vtexApi.proxy(req.originalUrl, req, res);
-            return resposnse;
-        }
+        get: proxyRouter,
     },
     {
         path: "/api/vtexid/**",
@@ -44,182 +49,36 @@ const routes = [
     },
     {
         path: "/buscaautocomplete/**",
-        get: async (req, res, next, route) => {
-            let resposnse = await vtexApi.proxy(req.originalUrl, req, res);
-            return resposnse;
-        },
+        get: proxyRouter,
     },
     {
         path: "/produto/**",
-        get: async (req, res, next, route) => {
-            let resposnse = await vtexApi.proxy(req.originalUrl, req, res);
-            return resposnse;
-        },
+        get: proxyRouter,
     },
     {
         path: "/api/**",
-        get: async (req, res, next, route) => {
-            let resposnse = await vtexApi.proxy(req.originalUrl, req, res);
-            return resposnse;
-        },
+        get: proxyRouter,
     },
     {
         path: "/",
         template: "v1-home.html",
         controller: "home",
         bodyClass: "home",
-        get: async (req, res, next, route) => {
-            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
-        }
-    },
-    {
-        path: "/promocao-relampago",
-        template: "v1-department.html",
-        controller: "promocao-relampago",
-        bodyClass: "department",
-        get: async (req, res, next, route) => {
-            
-            let content = await parseTemplate(route);
-            content = await scriptParse.metaCollection(164, content);
-            content = await categoryParse.itemsCollection(164, content);
-
-            return content;
-        }
-    },
-    {
-        path: "/account",
-        template: "v1-account.html",
-        controller: "account",
-        bodyClass: "account",
-        get: async (req, res, next, route) => {
-            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
-        }
-    },
-    {
-        path: "/personal",
-        template: "v1-personal.html",
-        controller: "personal",
-        bodyClass: "personal",
-        get: async (req, res, next, route) => {
-            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
-        }
-    },
-    {
-        path: "/promocoes",
-        template: "v1-promotions.html",
-        controller: "promotions",
-        bodyClass: "promotions",
-        get: async (req, res, next, route) => {
-            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
-        }
-    },
-    {
-        path: "/todas-promocoes",
-        template: "v1-todas-promocoes.html",
-        controller: "todas-promocoes",
-        bodyClass: "todas-promocoes",
-        get: async (req, res, next, route) => {
-            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
-        }
-    },
-    {
-        path: "/central-de-ajuda",
-        template: "v1-central-de-ajuda.html",
-        controller: "/central-de-ajuda",
-        bodyClass: "central-de-ajuda",
-        get: async (req, res, next, route) => {
-            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
-        }
-    },
-    {
-        path: "/central-de-ajuda/pedidos",
-        template: "v1-institucionais.html",
-        controller: "/central-de-ajuda/pedidos",
-        bodyClass: "institucional-pedidos",
-        get: async (req, res, next, route) => {
-            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
-        }
-    },
-    {
-        path: "/central-de-ajuda/entrega",
-        template: "v1-institucionais.html",
-        controller: "/central-de-ajuda/entrega",
-        bodyClass: "institucional-entrega",
-        get: async (req, res, next, route) => {
-            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
-        }
-    },
-    {
-        path: "/central-de-ajuda/trocas-e-devolucoes",
-        template: "v1-institucionais.html",
-        controller: "/central-de-ajuda/trocas-e-devolucoes",
-        bodyClass: "institucional-trocas",
-        get: async (req, res, next, route) => {
-            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
-        }
-    },
-    {
-        path: "/central-de-ajuda/pagamento",
-        template: "v1-institucionais.html",
-        controller: "/central-de-ajuda/pagamento",
-        bodyClass: "institucional-pagamento",
-        get: async (req, res, next, route) => {
-            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
-        }
-    },
-    {
-        path: "/marcas",
-        template: "v1-brands.html",
-        controller: "brands",
-        bodyClass: "brands",
-        get: async (req, res, next, route) => {
-            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
-        }
-    },
-    {
-        path: "/objetivos",
-        template: "v1-objetivos.html",
-        controller: "objectives",
-        bodyClass: "objectives",
-        get: async (req, res, next, route) => {
-            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
-        }
+        get: customRouter,
     },
     {
         path: "/busca-vazia",
         template: "v1-empty-search.html",
         controller: "empty-search",
         bodyClass: "empty-search",
-        get: async (req, res, next, route) => {
-            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
-        }
+        get: customRouter,
     },
     {
         path: "/sistema/404",
         template: "v1-404.html",
         controller: "sistema/404",
         bodyClass: "home",
-        get: async (req, res, next, route) => {
-            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
-        }
-    },
-    {
-        path: "/mapa-do-site",
-        template: "v1-site-map.html",
-        controller: "site-map",
-        bodyClass: "site-map",
-        get: async (req, res, next, route) => {
-            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
-        }
-    },
-    {
-        path: "/quem-somos",
-        template: "v1-quem-somos.html",
-        controller: "quem-somos",
-        bodyClass: "quem-somos",
-        get: async (req, res, next, route) => {
-            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
-        }
+        get: customRouter,
     },
     {
         path: "/:department",
@@ -255,7 +114,6 @@ const routes = [
         bodyClass: "product",
         get: async (req, res, next, route) => {
 
-            // let content = await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
             let content = await parseTemplate(route);
             const product = await vtexApi.getProductByUri(req.params.productName);
             content = await scriptParse.productPage(product[0], content);
@@ -298,15 +156,7 @@ const routes = [
         template: "v1-search.html",
         controller: "search",
         bodyClass: "search",
-        get: async (req, res, next, route) => {
-
-            // throw ({
-            //     message: "Busca",
-            //     redirect: "sistema/404",
-            // });
-
-            return await parseTemplateWithMeta(route, "projeto verão", "description loja desenvolvimento");
-        }
+        get: customRouter,
     },
 ];
 
