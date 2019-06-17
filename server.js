@@ -1,23 +1,16 @@
 
-var express = require("express");
-var cookieParser = require('cookie-parser');
-var vtexApi = require("./core/vtex-api");
-var bodyParser = require('body-parser');
-var routes = require("./routes/app.router");
-var fileUpload = require('express-fileupload');
+const express = require("express");
+const cookieParser = require('cookie-parser');
+const vtexApi = require("./core/vtex-api");
+const bodyParser = require('body-parser');
+const routes = require("./routes/app.router");
+const fileUpload = require('express-fileupload');
+const routeParse = require('./core/route-parse');
 
-var PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
-var app = express();
-
-app.use(cookieParser());
-app.use('/arquivos', express.static('arquivos'));
-app.use(bodyParser.json()); // support json encoded bodies
-app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
-app.use(fileUpload());
-app.use(async (req, res, next) => {
-
-    var cookie = req.cookies["checkout.vtex.com"];
+const createCookieVtexAuth = async (req, res, next) => {
+    const cookie = req.cookies["checkout.vtex.com"];
 
     if (!cookie) {
         const orderForm = await vtexApi.getOrderForm();
@@ -25,20 +18,79 @@ app.use(async (req, res, next) => {
     }
 
     next();
-});
+}
 
-routes.forEach(route => {
+const app = express();
+app.use(cookieParser());
+app.use('/arquivos', express.static('arquivos'));
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+app.use(fileUpload());
+app.use(createCookieVtexAuth);
+
+
+const proxyRoutes = [
+    {
+        path: "/no-cache/**",
+        controller: "proxy",
+    },
+    {
+        path: "/api/vtexid/**",
+        controller: "proxy",
+    },
+    {
+        path: "/buscaautocomplete/**",
+        controller: "proxy",
+    },
+    {
+        path: "/produto/**",
+        controller: "proxy",
+    },
+    {
+        path: "/api/**",
+        controller: "proxy",
+    }
+];
+
+[
+    ...proxyRoutes,
+    ...routes
+].forEach((route) => {
+
     const process = async (req, res, next) => {
+
         try {
-            const stringTemplate = await route.get(req, res, next, route);
+            let stringTemplate = null;
+
+            switch (route.controller) {
+                case "category":
+                    stringTemplate = await routeParse.categoryRoute(req, res, next, route);
+                    break;
+                case "department":
+                    stringTemplate = await routeParse.departmentRoute(req, res, next, route);
+                    break;
+                case "search":
+                    stringTemplate = await routeParse.departmentRoute(req, res, next, route);
+                    break;
+                case "product":
+                    stringTemplate = await routeParse.productRoute(req, res, next, route);
+                    break;
+                case "proxy":
+                    stringTemplate = await routeParse.productRoute(req, res, next, route);
+                    break;
+                default:
+                    stringTemplate = await routeParse.defaultRoute(req, res, next, route);
+                    break;
+            }
+
             res.send(stringTemplate);
+            return;
         } catch (error) {
-            
             if (error.statusCode == 401) {
                 res.send("não autorizado");
                 return;
             }
-            
+
             if (error.next) {
                 next();
             }
@@ -48,10 +100,15 @@ routes.forEach(route => {
             }
         }
     }
+
     app.get(route.path, process);
-    app.post(route.path, process);
-    app.put(route.path, process);
-    app.delete(route.path, process);
+
+    if (route.controller === "proxy") {
+        app.post(route.path, process);
+        app.patch(route.path, process);
+        app.put(route.path, process);
+        app.delete(route.path, process);
+    }
 });
 
 app.listen(PORT, () => {
