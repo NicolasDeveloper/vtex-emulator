@@ -1,7 +1,7 @@
 
 const express = require("express");
 const cookieParser = require('cookie-parser');
-const vtexApi = require("./core/vtex-api");
+const dataService = require("./core/services/data.service");
 const bodyParser = require('body-parser');
 const routes = require("./routes/app.router");
 const fileUpload = require('express-fileupload');
@@ -13,7 +13,7 @@ const createCookieVtexAuth = async (req, res, next) => {
     const cookie = req.cookies["checkout.vtex.com"];
 
     if (!cookie) {
-        const orderForm = await vtexApi.getOrderForm();
+        const orderForm = await dataService.getOrderForm();
         res.cookie('checkout.vtex.com', unescape(`__ofid=${orderForm.orderFormId}`), { maxAge: 900000 });
     }
 
@@ -86,18 +86,19 @@ const proxyRoutes = [
             res.send(stringTemplate);
             return;
         } catch (error) {
+            if (typeof error === "undefined")
+                return;
+
             if (error.statusCode == 401) {
                 res.send("não autorizado");
                 return;
             }
 
-            if (error.next) {
+            if (error.next)
                 next();
-            }
 
-            if (error.redirect) {
+            if (error.redirect)
                 res.redirect("/sistema/404");
-            }
         }
     }
 

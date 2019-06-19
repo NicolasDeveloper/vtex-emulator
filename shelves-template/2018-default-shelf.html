@@ -1,7 +1,7 @@
-<!-- #set($id = $product.Id)
+#set($id = $product.Id)
 #set($idSku = $product.productVariantId)
 #set($uri = $product.Uri)
-#set($escapedName = $product.HtmlEscapedName) -->
+#set($escapedName = $product.HtmlEscapedName)
 <div>
     <div>
         <a title="$escapedName" href="$uri">
@@ -10,7 +10,7 @@
         </a>
     </div>
     <div>
-        <!-- #if ($product.IsInStock)
+        #if ($product.IsInStock)
             #if ($product.HasBestPrice)
                 <span>
                     De: <span class="the-price">$product.ListPrice</span>
@@ -33,7 +33,7 @@
             </em>
         #else
             <span>Avise-me quando chegar</span>
-        #end -->
+        #end
     </div>
     
     <input type="hidden" id="getProductId" value='$id' />

@@ -192,3 +192,7 @@ module.exports.productPage = (product, templateHtml) => {
     });
 }
 
+module.exports.departmentProducts = function(products, templateId) {
+    console.debug(products);
+}
+

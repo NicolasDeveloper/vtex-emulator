@@ -1,6 +1,6 @@
 const path = require("path");
 const fs = require("fs");
-const vtexApi = require("../core/vtex-api");
+const dataService = require("./services/data.service");
 const shelfEngine = require("./shelf-engine");
 
 module.exports.html = (content, _path) => {
@@ -42,7 +42,7 @@ module.exports.banner = (content, index) => {
 
 module.exports.collection = (content) => {
     return new Promise(async (resolve, reject) => {
-        const products = await vtexApi.getByCollection(content.collection);
+        const products = await dataService.getByCollection(content.collection);
         const contentHtml = await shelfEngine.parseTemplate(products, content);
         content.html = contentHtml;
         resolve(content);

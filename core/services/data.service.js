@@ -1,6 +1,6 @@
 const request = require("request");
 const http = require("http");
-const config = require("./config");
+const config = require("../config");
 const queryString = require('query-string');
 const fs = require('fs');
 
@@ -35,7 +35,7 @@ module.exports.getProductByUri = (path) => {
 	});
 }
 
-exports.listCategorys = async () => {
+exports.listCategories = async () => {
 	return new Promise((resolve, reject) => {
 		request(`http://${config.hostApi}/api/catalog_system/pub/category/tree/3`, (error, response, body) => {
 			if (!error && response && (response.statusCode == 200 || response.statusCode == 206)) {
