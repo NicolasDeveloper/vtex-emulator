@@ -21,6 +21,20 @@ module.exports.getByCollection = (collectionId) => {
 	});
 }
 
+module.exports.getProductsByTerm = (term) => {
+	return new Promise((resolve, reject) => {
+		request(`${searchApi}?${term}`, (error, response, body) => {
+			if (!error && response && (response.statusCode == 200 || response.statusCode == 206)) {
+				resolve(JSON.parse(body));
+			} else {
+				reject(error);
+			}
+		}).on("error", (err) => {
+			reject("Error: " + err.message);
+		});
+	});
+}
+
 module.exports.getProductByUri = (path) => {
 	return new Promise((resolve, reject) => {
 		request(`${searchApi}/${path}/p`, (error, response, body) => {

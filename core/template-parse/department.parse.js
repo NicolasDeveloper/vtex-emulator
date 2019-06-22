@@ -23,7 +23,7 @@ module.exports.parse = async (departmentName, controllerName, templateName, body
     templateHtml = await metadata.parse(department, templateHtml);
 
     // parse shelf and controls of search 
-    templateHtml = await catalog.categories(`${category.id}/`, templateHtml);
+    templateHtml = await catalog.parse(`fq=C:${category.id}/`, templateHtml);
 
     return templateHtml;
 }

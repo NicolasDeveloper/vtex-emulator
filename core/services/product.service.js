@@ -41,6 +41,10 @@ module.exports["$product.NumbersOfInstallment"] = () => {
     return 8;
 }
 
+module.exports["${product.NumbersOfInstallment}"] = () => {
+    return 8;
+}
+
 module.exports["$product.DescriptionShort"] = () => {
     return product.description;
 }
@@ -70,7 +74,7 @@ module.exports["$product.NumbersOfInstallment"] = () => {
     return 8;
 }
 
-module.exports["$product.ProductInstallmentValue"] = () => {
+module.exports["$product.InstallmentValue"] = () => {
     const { Price } = getSeller().commertialOffer;
     return (Price / 8).toFixed(2).replace(/\.+/g, ",");
 }

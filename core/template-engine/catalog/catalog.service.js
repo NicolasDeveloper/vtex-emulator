@@ -1,42 +1,48 @@
 const path = require("path");
-const fs = require("fs");
+const templateEngine = require("./template-engine.service")
+const shelfsConfig = require("../../../shelves-template/shelfs-config.json");
+const dataService = require("../../services/data.service");
 
-module.exports.categories = (categoryPath, content) => {
-    return new Promise((resolve, reject) => {
-        
-        const shelftag = content.match(/\<vtex\.cmc:searchResult\s*.layout\=\"[a-z|\-|0-9]+\"\s*.itemCount\="[0-9]+"+ columnCount\="[0-9]+"\s*.showUnavailable\="[a-z]+"\s*.\/\>/g);
-        
-        if (shelftag) {
-            fs.readFile(`${path.resolve(__dirname, "../../../templates-config/shelf.html")}`, "utf8", (err, data) => {
-                
-                data = data.replace(/\{\{categoryPath\}\}/g, `fq=C:/${categoryPath}`);
-                data = data.replace(/\{\{sl\}\}/g, `1`);
-                data = data.replace(/\{\{products\}\}/g, `1`);
-                content = content.replace(shelftag[0], data);
-
-                resolve(content);
-            });
-        } else {
-            resolve(content);
-        }
-    });
+const getAttribute = (tag, attribute) => {
+    var regex = new RegExp(`${attribute}\=\"(.*?)\"`)
+    return regex.exec(tag)[1];
 }
 
-module.exports.collection = (categoryPath, content) => {
-    return new Promise((resolve, reject) => {
-        
-        const shelftag = content.match(/\<vtex\.cmc:searchResult\s*.layout\=\"[a-z|\-|0-9]+\"\s*.itemCount\="[0-9]+"+ columnCount\="[0-9]+"\s*.showUnavailable\="[a-z]+"\s*.\/\>/g);
-        
-        if (shelftag) {
-            fs.readFile(`${path.resolve(__dirname, "../../../templates-config/shelf.html")}`, "utf8", (err, data) => {
-                
-                data = data.replace(/\{\{categoryPath\}\}/g, `fq=H:${categoryPath}&ft=${categoryPath}`);
-                data = data.replace(/\{\{sl\}\}/g, `1`);
-                data = data.replace(/\{\{products\}\}/g, `1`);
-                content = content.replace(shelftag[0], data);
+const searchShelfTemplate = (layout) => {
+    return shelfsConfig.find((shelf) => shelf.layout === layout);
+}
 
-                resolve(content);
-            });
+const getTemplatePath = (templatePath) => {
+    return `${path.resolve(__dirname, templatePath)}`
+}
+
+const getShelfTag = (templateHTML) => {
+    return /<vtex.cmc:searchResult.*\/>/g.exec(templateHTML)[0];
+}
+
+module.exports.parse = async (categoryPath, templateHTML) => {
+    return new Promise(async (resolve, reject) => {
+        const shelftag = getShelfTag(templateHTML);
+
+        if (shelftag) {
+            const layoutId = getAttribute(shelftag, "layout");
+            const shelfConfig = searchShelfTemplate(layoutId);
+
+            if (!shelfConfig)
+                throw ({
+                    error: true,
+                    message: `template não encontrado ${layoutId}!`,
+                });
+
+            const templatePath = getTemplatePath(`../../../shelves-template/${shelfConfig.template}`);
+
+            // get products
+            const products = await dataService.getProductsByTerm(categoryPath);
+
+            const catalogParsed = await templateEngine.parse(templatePath, products, shelfConfig);
+            templateHTML = templateHTML.replace(shelftag, catalogParsed);
+
+            resolve(templateHTML);
         } else {
             resolve(content);
         }
