@@ -2,6 +2,7 @@
 const dataService = require("./services/data.service");
 const departmentService = require("./template-parse/department.parse");
 const categoryService = require("./template-parse/category.parse");
+const productService = require("./template-parse/product.parse");
 const defaultService = require("./template-parse/default.parse");
 
 module.exports.defaultRoute = async (req, res, next, route) => {
@@ -9,31 +10,23 @@ module.exports.defaultRoute = async (req, res, next, route) => {
 }
 
 module.exports.departmentRoute = async (req, res, next, route) => {
-    // get category params
     const department = req.params.department;
-    
-    // call template engine to parse category intormations
+
     const templateHtml = await departmentService.parse(department, route.controller, route.template, route.bodyClass)
-    
+
     return templateHtml;
 }
 
 module.exports.categoryRoute = async (req, res, next, route) => {
-    // get category params
     const departmentName = req.params.department;
     const categoryName = req.params['0'];
 
-    // call template engine to parse category intormations
     const templateHTML = await categoryService.parse(departmentName, categoryName, route.controller, route.template, route.bodyClass);
-
     return templateHTML;
 }
 
 module.exports.productRoute = async (req, res, next, route) => {
-    let templateHTML = await parseTemplate(route);
-    const product = await dataService.getProductByUri(req.params.productName);
-    templateHTML = await scriptParse.productPage(product[0], content);
-
+    const templateHTML = await productService.parse(route.controller, route.template, route.bodyClass, req.params.productName);
     return templateHTML;
 }
 

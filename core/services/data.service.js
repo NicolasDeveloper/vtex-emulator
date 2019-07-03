@@ -5,6 +5,7 @@ const queryString = require('query-string');
 const fs = require('fs');
 
 const searchApi = `http://${config.store}.vtexcommercestable.com.br/api/catalog_system/pub/products/search`;
+const facetsApi = `http://${config.store}.vtexcommercestable.com.br/api/catalog_system/pub/facets/search/`;
 
 
 module.exports.getByCollection = (collectionId) => {
@@ -35,13 +36,27 @@ module.exports.getProductsByTerm = (term) => {
 	});
 }
 
+module.exports.getFacetsFilter = (categories, params) => {
+	return new Promise((resolve, reject) => {
+		request(`${facetsApi}${categories}?${params}`, (error, response, body) => {
+			if (!error && response && (response.statusCode == 200 || response.statusCode == 206)) {
+				resolve(JSON.parse(body));
+			} else {
+				reject(error);
+			}
+		}).on("error", (err) => {
+			reject("Error: " + err.message);
+		});
+	});
+}
+
 module.exports.getProductByUri = (path) => {
 	return new Promise((resolve, reject) => {
 		request(`${searchApi}/${path}/p`, (error, response, body) => {
 			if (!error && response && (response.statusCode == 200 || response.statusCode == 206)) {
 				resolve(JSON.parse(body));
 			} else {
-				reject("Error: " + error.message);
+				reject("Error: " + error && error.message);
 			}
 		}).on("error", (err) => {
 			reject("Error: " + err.message);
@@ -55,7 +70,7 @@ exports.listCategories = async () => {
 			if (!error && response && (response.statusCode == 200 || response.statusCode == 206)) {
 				resolve(JSON.parse(body));
 			} else {
-				reject("Error: " + error.message);
+				reject("Error: " + error && error.message);
 			}
 		}).on("error", (err) => {
 			reject("Error: " + err.message);
@@ -69,7 +84,7 @@ exports.getOrderForm = async () => {
 			if (!error && response && (response.statusCode == 200 || response.statusCode == 206)) {
 				resolve(JSON.parse(body));
 			} else {
-				reject("Error: " + error.message);
+				reject("Error: " + error && error.message);
 			}
 		});
 	});

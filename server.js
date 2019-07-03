@@ -64,19 +64,24 @@ const proxyRoutes = [
 
             switch (route.controller) {
                 case "category":
-                    stringTemplate = await routeParse.categoryRoute(req, res, next, route);
+                    try {
+                        stringTemplate = await routeParse.categoryRoute(req, res, next, route);
+                    } catch (error) {
+                        next();
+                    }
                     break;
                 case "department":
                     stringTemplate = await routeParse.departmentRoute(req, res, next, route);
                     break;
                 case "search":
-                    stringTemplate = await routeParse.departmentRoute(req, res, next, route);
+                    // stringTemplate = await routeParse.departmentRoute(req, res, next, route);
+                    res.status(404).send('Not Found');
                     break;
                 case "product":
                     stringTemplate = await routeParse.productRoute(req, res, next, route);
                     break;
                 case "proxy":
-                    stringTemplate = await routeParse.productRoute(req, res, next, route);
+                    stringTemplate = await routeParse.proxyRoute(req, res, next, route);
                     break;
                 default:
                     stringTemplate = await routeParse.defaultRoute(req, res, next, route);
@@ -86,6 +91,8 @@ const proxyRoutes = [
             res.send(stringTemplate);
             return;
         } catch (error) {
+            console.warn(error);
+            
             if (typeof error === "undefined")
                 return;
 

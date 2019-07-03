@@ -2,6 +2,7 @@ const path = require("path");
 const templateEngine = require("./template-engine.service")
 const shelfsConfig = require("../../../shelves-template/shelfs-config.json");
 const dataService = require("../../services/data.service");
+const searchService = require("../search-control/search-control.service");
 
 const getAttribute = (tag, attribute) => {
     var regex = new RegExp(`${attribute}\=\"(.*?)\"`)
@@ -17,16 +18,55 @@ const getTemplatePath = (templatePath) => {
 }
 
 const getShelfTag = (templateHTML) => {
-    return /<vtex.cmc:searchResult.*\/>/g.exec(templateHTML)[0];
+    const tag = /<vtex.cmc:searchResult.*\/>/g.exec(templateHTML);
+    return tag && tag[0];
 }
 
-module.exports.parse = async (categoryPath, templateHTML) => {
+const fromTemplateParseContent = (templateHTML, catalogParsed) => {
+    const shelftag = getShelfTag(templateHTML);
+    return templateHTML.replace(shelftag, catalogParsed);
+}
+
+const clearDomain = (domain) => {
+    return domain.replace(/http(.*)\:\/\/(.*)\.com\.br\//, "");
+}
+
+const getMap = (pathName) => {
+    const pathSplited = pathName.split(/\//);
+    return pathSplited && `map=${pathSplited.map((x) => "c").join(",")}`;
+}
+
+const fromPathGetCategories = (categoriesTrees, categoryPathName, currentCategory = 0, categoriesFinded = []) => {
+    const categories = categoryPathName.split(/\//g);
+    categoryName = categories[currentCategory];
+
+    const categoryFinded = categoriesTrees.find((category) => {
+        return category.Value.toLowerCase() === categoryName
+    });
+
+    if ((currentCategory + 1) < categories.length) {
+        categoriesFinded.push(categoryFinded);
+        return fromPathGetCategories(categoryFinded.Children, categoryPathName, currentCategory + 1, categoriesFinded);
+    } else {
+        categoriesFinded.push(categoryFinded);
+        return categoriesFinded;
+    }
+}
+
+const getSearchEndpoint = (categoriesFinded) => {
+    return `fq=C:${categoriesFinded.map(category => category.Id).join("/")}`;
+}
+
+module.exports.parse = async (category, templateHTML) => {
     return new Promise(async (resolve, reject) => {
         const shelftag = getShelfTag(templateHTML);
 
         if (shelftag) {
             const layoutId = getAttribute(shelftag, "layout");
             const shelfConfig = searchShelfTemplate(layoutId);
+            const categoryPathName = clearDomain(category.url);
+
+            let parsedTemplateHTML = "";
 
             if (!shelfConfig)
                 throw ({
@@ -36,15 +76,21 @@ module.exports.parse = async (categoryPath, templateHTML) => {
 
             const templatePath = getTemplatePath(`../../../shelves-template/${shelfConfig.template}`);
 
-            // get products
+            const filters = await dataService.getFacetsFilter(`${categoryPathName}`, getMap(categoryPathName));
+            const categoriesFinded = fromPathGetCategories(filters.CategoriesTrees, categoryPathName);
+
+            const categoryPath = getSearchEndpoint(categoriesFinded);
             const products = await dataService.getProductsByTerm(categoryPath);
 
             const catalogParsed = await templateEngine.parse(templatePath, products, shelfConfig);
-            templateHTML = templateHTML.replace(shelftag, catalogParsed);
+            parsedTemplateHTML = fromTemplateParseContent(templateHTML, catalogParsed);
 
-            resolve(templateHTML);
+            parsedTemplateHTML = await searchService.parseSingleDepartmentNavigator(categoriesFinded[categoriesFinded.length - 1], filters, parsedTemplateHTML);
+            parsedTemplateHTML = await searchService.parseSearchNavigator(categoriesFinded[categoriesFinded.length - 1], filters, parsedTemplateHTML);
+
+            resolve(parsedTemplateHTML);
         } else {
-            resolve(content);
+            resolve(templateHTML);
         }
     });
 }

@@ -1,29 +1,37 @@
-const template = require("../template-engine/template/template.service");
-const metadata = require("../template-engine/department/metadata.service");
-const categories = require("../services/category.service");
-const catalog = require("../template-engine/catalog/catalog.service");
+const templateService = require("../template-engine/template/template.service");
+const metadataService = require("../template-engine/metadata/metadata.service");
+const categoryService = require("../services/category.service");
+const catalogService = require("../template-engine/catalog/catalog.service");
 
+const getSearchEndpoint = (department) => {
+    return `fq=C:${department.id}`;
+}
 
-module.exports.parse = async (departmentName, controllerName, templateName, bodyClass) => {
-    
-    // parse global template with header, footer and etc.
-    let templateHtml = await template.parse(controllerName, templateName, bodyClass);
+module.exports.parse = async (departmentName, controller, templateName, bodyClass) => {
+    let templateHtml = await templateService.parse(controller, templateName, bodyClass);
 
-    // find curent department
-    const department = await categories.getCurrentDepartement(departmentName);
+    const department = await categoryService.getCurrentDepartement(departmentName);
 
-    // if can not find the current category, then call the search route
     if (!department)
         throw ({
             message: "Busca",
             next: true,
         });
 
-    // parse meta data
-    templateHtml = await metadata.parse(department, templateHtml);
+    const searchEndpoint = getSearchEndpoint(department);
+    const metadataConfig = {
+        abstract: department.id,
+        title: department.Title,
+        description: department.MetaTagDescription,
+        categoryId: department.id,
+        categoryName: department.name,
+        departmentyId: department.id,
+        departmentName: department.name,
+        categoryPath: searchEndpoint,
+    }
 
-    // parse shelf and controls of search 
-    templateHtml = await catalog.parse(`fq=C:${category.id}/`, templateHtml);
+    templateHtml = await metadataService.parse(metadataConfig, templateHtml);
+    templateHtml = await catalogService.parse(department, templateHtml);
 
     return templateHtml;
-}
+}   

@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const config = require("../../config");
 
-module.exports.parse = async (metadata = {}, templateHtml) => {
+module.exports.parse = async (metadata = {}, templateHtml, metaAppend = "") => {
     return new Promise((resolve, reject) => {
         fs.readFile(`${path.resolve(__dirname, "../../../templates-config/vtex-scripts-department.html")}`, "utf8", (err, data) => {
             let template = data;
@@ -32,7 +32,7 @@ module.exports.parse = async (metadata = {}, templateHtml) => {
             template = template.replace(/\{\{categoryPath\}\}/g, categoryPath || "");
             template = template.replace(/\{\{sl\}\}/g, `1`);
             template = template.replace(/\{\{products\}\}/g, `1`);
-            templateHtml = templateHtml.replace(/(?:\<vtex:metaTags.*\/>)/g, template);
+            templateHtml = templateHtml.replace(/(?:\<vtex:metaTags.*\/>)/g, `${template}${metaAppend}`);
 
             resolve(templateHtml);
         });

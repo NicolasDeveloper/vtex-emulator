@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce"
-    lang="pt-br">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common"
+    xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-br">
 
 <head>
     <vtex:metaTags />
@@ -13,21 +13,12 @@
     <!-- end header -->
 
     <main>
-        <!--init breadcrumb-->
-        <!-- <div id="breadcrumb-ref" style="display:none">
-           <vtex.cmc:breadCrumb />
-        </div> -->
-        <!--fim breadcrumb-->        
-       
-        <!-- init filters reference -->
-        <div class="filter-ref" style="display:none">
-            <vtex.cmc:singleDepartmentNavigator />
-            <vtex.cmc:advancedSearchFilter />
+        <div class="filter-content">
             <vtex.cmc:searchNavigator />
-            <vtex.cmc:searchResult layout="12f5e463-a908-4274-8dda-6c585ee00af0" itemCount="9" columnCount="3"
-                showUnavailable="true" />
         </div>
-        <!-- end filters reference -->
+        <div class="shelf-content">
+            <vtex.cmc:searchResult layout="12f5e463-a908-4274-8dda-6c585ee00af0" itemCount="12" columnCount="12" />
+        </div>
     </main>
 
     <!-- footer -->

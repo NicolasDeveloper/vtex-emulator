@@ -1,7 +1,7 @@
-const template = require("../template-engine/template/template.service");
-const metadata = require("../template-engine/metadata/metadata.service");
-const category = require("../services/category.service");
-const catalog = require("../template-engine/catalog/catalog.service");
+const templateService = require("../template-engine/template/template.service");
+const metadataSevice = require("../template-engine/metadata/metadata.service");
+const categoryService = require("../services/category.service");
+const catalogService = require("../template-engine/catalog/catalog.service");
 
 const getSearchEndpoint = (categories) => {
     const term = categories.map((category) => category.id).join("/")
@@ -9,12 +9,9 @@ const getSearchEndpoint = (categories) => {
 }
 
 module.exports.parse = async (departmentName, categoryName, controller, templateName, bodyClass) => {
+    let templateHtml = await templateService.parse(controller, templateName, bodyClass);
 
-    // parse global template with header, footer and etc.
-    let templateHtml = await template.parse(controller, templateName, bodyClass);
-
-    // find curent category
-    const categories = await category.getCurrentCategory(departmentName, categoryName);
+    const categories = await categoryService.getCurrentCategory(departmentName, categoryName);
 
     // if can not find the current category, then call the search route
     if (!categories)
@@ -23,7 +20,6 @@ module.exports.parse = async (departmentName, categoryName, controller, template
             next: true,
         });
 
-    // parse meta data
     const searchEndpoint = getSearchEndpoint(categories);
     const metadataConfig = {
         abstract: categories[categories.length - 1].id,
@@ -35,10 +31,9 @@ module.exports.parse = async (departmentName, categoryName, controller, template
         departmentName: categories[0].name,
         categoryPath: searchEndpoint,
     }
-    templateHtml = await metadata.parse(metadataConfig, templateHtml);
 
-    // parse shelf and controls of search 
-    templateHtml = await catalog.parse(searchEndpoint, templateHtml);
+    templateHtml = await metadataSevice.parse(metadataConfig, templateHtml);
+    templateHtml = await catalogService.parse(categories[categories.length - 1], templateHtml);
 
     return templateHtml;
 }
