@@ -4,6 +4,28 @@
 <div style="display:none;">
     <vtex.cmc:welcomeMessage />
 </div>
+<script>
+    var loadScript = function (scriptUrl) {
+        var script = document.createElement('script');
+        script.src = scriptUrl;
+        document.head.appendChild(script);
+    }
 
-<!-- <script src="/arquivos/bundle.yourstore.store.v15.common.js"  type="text/javascript" rel="preload" as="script"></script>  
-<script src="/arquivos/bundle.yourstore.store.v15.website.js" type="text/javascript" rel="preload" as="script"></script> -->
+    var chooseScriptsByEnvironment = function (environment) {
+        switch (environment) {
+            case "localhost":
+                loadScript("http://localhost:3001/arquivos/bundle.dev.website.js");
+                break;
+            default:
+                loadScript("/arquivos/bundle.yourstore.store.v15.website.js");
+                break;
+        }
+    }
+
+    var startAssets = function () {
+        var path = window.location.hostname;
+        chooseScriptsByEnvironment(path);
+    }
+
+    startAssets();
+</script>
