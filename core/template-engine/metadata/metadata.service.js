@@ -3,9 +3,9 @@ const fs = require("fs");
 const path = require("path");
 const config = require("../../config");
 
-module.exports.parse = async (metadata = {}, templateHtml, metaAppend = "") => {
+module.exports.parse = async (metadata = {}, templateHtml, templateConfigPath = "vtex-scripts-department.html", metaAppend = "") => {
     return new Promise((resolve, reject) => {
-        fs.readFile(`${path.resolve(__dirname, "../../../templates-config/vtex-scripts-department.html")}`, "utf8", (err, data) => {
+        fs.readFile(`${path.resolve(__dirname, `../../../templates-config/${templateConfigPath}`)}`, "utf8", (err, data) => {
             let template = data;
 
             const {

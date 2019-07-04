@@ -4,5 +4,7 @@ module.exports = {
     innerPath: "/",
     appKey: '',
     appToken: '',
-    store: "tenabr"
+    store: "tenabr",
+    breadcrumb: "TENA",
+    cdn: "tenabr.vteximg.com.br",
 }

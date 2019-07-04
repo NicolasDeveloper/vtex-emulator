@@ -15,6 +15,11 @@ module.exports.parse = async (controller, templateName, bodyClass, productName) 
 
     product = product[0];
 
-    templateHTML = await productService.parse(product, templateHTML);
+    let skuDetailed = await dataService.getSku(product.items[0].itemId);
+    skuDetailed = skuDetailed[0];
+
+    const productVariation = await dataService.getProductWithVariations(product.productId);
+
+    templateHTML = await productService.parse(product, skuDetailed, productVariation, templateHTML);
     return templateHTML;
 }

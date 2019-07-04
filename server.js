@@ -91,7 +91,7 @@ const proxyRoutes = [
             res.send(stringTemplate);
             return;
         } catch (error) {
-            console.warn(error);
+            // console.warn(error);
             
             if (typeof error === "undefined")
                 return;

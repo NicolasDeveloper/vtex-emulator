@@ -6,11 +6,40 @@ const fs = require('fs');
 
 const searchApi = `http://${config.store}.vtexcommercestable.com.br/api/catalog_system/pub/products/search`;
 const facetsApi = `http://${config.store}.vtexcommercestable.com.br/api/catalog_system/pub/facets/search/`;
-
+const productApi = `http://${config.store}.vtexcommercestable.com.br/produto/sku/`;
+const variationApi = `http://${config.store}.vtexcommercestable.com.br/api/catalog_system/pub/products/variations/`;
 
 module.exports.getByCollection = (collectionId) => {
 	return new Promise((resolve, reject) => {
 		request(`${searchApi}?fq=productClusterIds:${collectionId}`, (error, response, body) => {
+			if (!error && response && (response.statusCode == 200 || response.statusCode == 206)) {
+				resolve(JSON.parse(body));
+			} else {
+				reject(error);
+			}
+		}).on("error", (err) => {
+			reject("Error: " + err.message);
+		});
+	});
+}
+
+module.exports.getSku = (sku) => {
+	return new Promise((resolve, reject) => {
+		request(`${productApi}${sku}`, (error, response, body) => {
+			if (!error && response && (response.statusCode == 200 || response.statusCode == 206)) {
+				resolve(JSON.parse(body));
+			} else {
+				reject(error);
+			}
+		}).on("error", (err) => {
+			reject("Error: " + err.message);
+		});
+	});
+}
+
+module.exports.getProductWithVariations = (productId) => {
+	return new Promise((resolve, reject) => {
+		request(`${variationApi}${productId}`, (error, response, body) => {
 			if (!error && response && (response.statusCode == 200 || response.statusCode == 206)) {
 				resolve(JSON.parse(body));
 			} else {
@@ -94,11 +123,11 @@ exports.proxy = (path, req, res) => {
 	return new Promise(async (resolve, reject) => {
 
 		var options = {
-			url: `${req.protocol}://lojaprojetoverao.vtexcommercestable.com.br${path}`,
+			url: `${req.protocol}://${config.store}.vtexcommercestable.com.br${path}`,
 			headers: {
 				// "X-VTEX-API-AppKey": config.appKey,
 				// "X-VTEX-API-AppToken": config.appToken,
-				'VtexIdclientAutCookie': req.cookies["VtexIdclientAutCookie_lojaprojetoverao"],
+				'VtexIdclientAutCookie': req.cookies[config.appKey],
 				...req.headers
 			},
 			method: req.method,

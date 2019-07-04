@@ -1,4 +1,5 @@
 var product = null;
+var config = require("../config"); 
 
 const getSeller = () => {
     return product.items[0].sellers[0];
@@ -97,7 +98,7 @@ module.exports["$product.DepartmentName"] = () => {
 }
 
 module.exports["$product.GetImageTag(30)"] = () => {
-    return product.items[0].images[0].imageTag;
+    return product.items[0].images[0].imageTag.replace("#width#-#height#", "350-350").replace("~", `https://${config.cdn}`);
 }
 
 module.exports["$product.BottomBuyAsynchronous"] = () => {

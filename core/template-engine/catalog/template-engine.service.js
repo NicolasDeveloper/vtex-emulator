@@ -136,7 +136,7 @@ const parseConditionals = (productsParsedToHtml) => {
     return productsReturn.join("");
 }
 
-const fromProductsGetShelfTemplateParsed = (products, shelfTemplateHTML, shelfConfig) => {
+const fromProductsGetShelfTemplateParsed = (products, shelfTemplateHTML, shelfConfig, title) => {
     const variables = fromShelfTempleteGetVariables(shelfTemplateHTML);
     shelfTemplateHTML = removeVariableEngineFromTemplate(shelfTemplateHTML);
     const productsParsed = fromVariablesParseProductData(products, variables, shelfTemplateHTML);
@@ -144,18 +144,19 @@ const fromProductsGetShelfTemplateParsed = (products, shelfTemplateHTML, shelfCo
     listProductsParsedToHtml = parseConditionals(listProductsParsedToHtml);
     return `
         <div class="${shelfConfig.class}">
+            ${title ? `<h2>${title}</h2>` : ""}
             <ul>
                 ${listProductsParsedToHtml}
             </ul>
         </div>`;
 }
 
-module.exports.parse = async (templatePath, products, shelfConfig) => {
+module.exports.parse = async (templatePath, products, shelfConfig, title = null) => {
     return new Promise((resolve, reject) => {
         fs.readFile(templatePath, "utf8", (err, data) => {
             let shelfTemplateHTML = data;
 
-            const shelfTemplateHTMLParsed = fromProductsGetShelfTemplateParsed(products, shelfTemplateHTML, shelfConfig);
+            const shelfTemplateHTMLParsed = fromProductsGetShelfTemplateParsed(products, shelfTemplateHTML, shelfConfig, title);
             resolve(shelfTemplateHTMLParsed);
         });
     });
