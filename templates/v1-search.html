@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce"
-    lang="pt-br">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common"
+    xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-br">
 
 <head>
+    <vtex:metaTags />
     <vtex:template id="2018-v1-head-tags" />
 </head>
 
@@ -12,9 +13,14 @@
     <!-- end header -->
 
     <main>
-        search
+        <div class="filter-content">
+            <vtex.cmc:searchNavigator />
+        </div>
+        <div class="shelf-content">
+            <vtex.cmc:searchResult layout="12f5e463-a908-4274-8dda-6c585ee00af0" itemCount="12" columnCount="12" />
+        </div>
     </main>
-    
+
     <!-- footer -->
     <vtex:template id="2018-v1-footer" />
     <!-- end footer -->

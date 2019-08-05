@@ -52,7 +52,7 @@
     Catalog = (function () {
         var HOST_URL;
 
-        HOST_URL = "https://proxy-vitrio.azurewebsites.net/lojaprojetoverao.vtexcommercestable.com.br";
+        HOST_URL = `//${window.location.hostname}:${window.location.port}`;
 
         function Catalog(options) {
             if (options == null) {
@@ -165,7 +165,7 @@
     Checkout = (function () {
         var HOST_URL, events;
 
-        HOST_URL = "https://proxy-vitrio.azurewebsites.net/lojaprojetoverao.vtexcommercestable.com.br";
+        HOST_URL = `//${window.location.hostname}:${window.location.port}`;
 
         events = {
             ORDER_FORM_UPDATED: 'orderFormUpdated.vtex',
@@ -306,9 +306,9 @@
             }
             options.type || (options.type = 'POST');
             options.headers = {
-                "x-vtex-api-appKey": "vtexappkey-obasuplementos-GPVOUL",
-                "x-vtex-api-appToken": "CCGFDHHYJZFTKUWPDXAIMBJWVTZRVMAISKKACDFSRSDIZAYGRKQPEZXBTKJKHPDXZWBZJWMASHQTYBWUUSAKVKDSNJHRTVKBPFJDZZXVYQWXJDCSOOPPPSBOSJLZOVGX",
-                "x-origin": "x-requested-with",
+                // "x-vtex-api-appKey": "vtexappkey-obasuplementos-GPVOUL",
+                // "x-vtex-api-appToken": "CCGFDHHYJZFTKUWPDXAIMBJWVTZRVMAISKKACDFSRSDIZAYGRKQPEZXBTKJKHPDXZWBZJWMASHQTYBWUUSAKVKDSNJHRTVKBPFJDZZXVYQWXJDCSOOPPPSBOSJLZOVGX",
+                // "x-origin": "x-requested-with",
             }
             options.contentType || (options.contentType = 'application/json; charset=utf-8');
             options.dataType || (options.dataType = 'json');
@@ -347,9 +347,9 @@
                     url: this._getOrderFormURLWithId(),
                     type: 'POST',
                     headers: {
-                        "x-vtex-api-appKey": "vtexappkey-obasuplementos-GPVOUL",
-                        "x-vtex-api-appToken": "CCGFDHHYJZFTKUWPDXAIMBJWVTZRVMAISKKACDFSRSDIZAYGRKQPEZXBTKJKHPDXZWBZJWMASHQTYBWUUSAKVKDSNJHRTVKBPFJDZZXVYQWXJDCSOOPPPSBOSJLZOVGX",
-                        "x-origin": "x-requested-with",
+                        // "x-vtex-api-appKey": "vtexappkey-obasuplementos-GPVOUL",
+                        // "x-vtex-api-appToken": "CCGFDHHYJZFTKUWPDXAIMBJWVTZRVMAISKKACDFSRSDIZAYGRKQPEZXBTKJKHPDXZWBZJWMASHQTYBWUUSAKVKDSNJHRTVKBPFJDZZXVYQWXJDCSOOPPPSBOSJLZOVGX",
+                        // "x-origin": "x-requested-with",
                     },
                     contentType: 'application/json; charset=utf-8',
                     dataType: 'json',
@@ -552,9 +552,9 @@
                 url: this._manualPriceURL(itemIndex),
                 type: 'PUT',
                 headers: {
-                    "x-vtex-api-appKey": "vtexappkey-obasuplementos-GPVOUL",
-                    "x-vtex-api-appToken": "CCGFDHHYJZFTKUWPDXAIMBJWVTZRVMAISKKACDFSRSDIZAYGRKQPEZXBTKJKHPDXZWBZJWMASHQTYBWUUSAKVKDSNJHRTVKBPFJDZZXVYQWXJDCSOOPPPSBOSJLZOVGX",
-                    "x-origin": "x-requested-with",
+                    // "x-vtex-api-appKey": "vtexappkey-obasuplementos-GPVOUL",
+                    // "x-vtex-api-appToken": "CCGFDHHYJZFTKUWPDXAIMBJWVTZRVMAISKKACDFSRSDIZAYGRKQPEZXBTKJKHPDXZWBZJWMASHQTYBWUUSAKVKDSNJHRTVKBPFJDZZXVYQWXJDCSOOPPPSBOSJLZOVGX",
+                    // "x-origin": "x-requested-with",
                 },
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'json',
@@ -567,9 +567,9 @@
                 url: this._manualPriceURL(itemIndex),
                 type: 'DELETE',
                 headers: {
-                    "x-vtex-api-appKey": "vtexappkey-obasuplementos-GPVOUL",
-                    "x-vtex-api-appToken": "CCGFDHHYJZFTKUWPDXAIMBJWVTZRVMAISKKACDFSRSDIZAYGRKQPEZXBTKJKHPDXZWBZJWMASHQTYBWUUSAKVKDSNJHRTVKBPFJDZZXVYQWXJDCSOOPPPSBOSJLZOVGX",
-                    "x-origin": "x-requested-with",
+                    // "x-vtex-api-appKey": "vtexappkey-obasuplementos-GPVOUL",
+                    // "x-vtex-api-appToken": "CCGFDHHYJZFTKUWPDXAIMBJWVTZRVMAISKKACDFSRSDIZAYGRKQPEZXBTKJKHPDXZWBZJWMASHQTYBWUUSAKVKDSNJHRTVKBPFJDZZXVYQWXJDCSOOPPPSBOSJLZOVGX",
+                    // "x-origin": "x-requested-with",
                 },
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'json'
@@ -709,9 +709,9 @@
                 url: this._getSimulationURL() + salesChannelQueryString,
                 type: 'POST',
                 headers: {
-                    "x-vtex-api-appKey": "vtexappkey-obasuplementos-GPVOUL",
-                    "x-vtex-api-appToken": "CCGFDHHYJZFTKUWPDXAIMBJWVTZRVMAISKKACDFSRSDIZAYGRKQPEZXBTKJKHPDXZWBZJWMASHQTYBWUUSAKVKDSNJHRTVKBPFJDZZXVYQWXJDCSOOPPPSBOSJLZOVGX",
-                    "x-origin": "x-requested-with",
+                    // "x-vtex-api-appKey": "vtexappkey-obasuplementos-GPVOUL",
+                    // "x-vtex-api-appToken": "CCGFDHHYJZFTKUWPDXAIMBJWVTZRVMAISKKACDFSRSDIZAYGRKQPEZXBTKJKHPDXZWBZJWMASHQTYBWUUSAKVKDSNJHRTVKBPFJDZZXVYQWXJDCSOOPPPSBOSJLZOVGX",
+                    // "x-origin": "x-requested-with",
                 },
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'json',
@@ -769,9 +769,9 @@
                 url: this._getOrdersURL(orderGroupId),
                 type: 'GET',
                 headers: {
-                    "x-vtex-api-appKey": "vtexappkey-obasuplementos-GPVOUL",
-                    "x-vtex-api-appToken": "CCGFDHHYJZFTKUWPDXAIMBJWVTZRVMAISKKACDFSRSDIZAYGRKQPEZXBTKJKHPDXZWBZJWMASHQTYBWUUSAKVKDSNJHRTVKBPFJDZZXVYQWXJDCSOOPPPSBOSJLZOVGX",
-                    "x-origin": "x-requested-with",
+                    // "x-vtex-api-appKey": "vtexappkey-obasuplementos-GPVOUL",
+                    // "x-vtex-api-appToken": "CCGFDHHYJZFTKUWPDXAIMBJWVTZRVMAISKKACDFSRSDIZAYGRKQPEZXBTKJKHPDXZWBZJWMASHQTYBWUUSAKVKDSNJHRTVKBPFJDZZXVYQWXJDCSOOPPPSBOSJLZOVGX",
+                    // "x-origin": "x-requested-with",
                 },
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'json'
@@ -790,9 +790,9 @@
                 url: this._getOrderFormURL() + '/messages/clear',
                 type: 'POST',
                 headers: {
-                    "x-vtex-api-appKey": "vtexappkey-obasuplementos-GPVOUL",
-                    "x-vtex-api-appToken": "CCGFDHHYJZFTKUWPDXAIMBJWVTZRVMAISKKACDFSRSDIZAYGRKQPEZXBTKJKHPDXZWBZJWMASHQTYBWUUSAKVKDSNJHRTVKBPFJDZZXVYQWXJDCSOOPPPSBOSJLZOVGX",
-                    "x-origin": "x-requested-with",
+                    // "x-vtex-api-appKey": "vtexappkey-obasuplementos-GPVOUL",
+                    // "x-vtex-api-appToken": "CCGFDHHYJZFTKUWPDXAIMBJWVTZRVMAISKKACDFSRSDIZAYGRKQPEZXBTKJKHPDXZWBZJWMASHQTYBWUUSAKVKDSNJHRTVKBPFJDZZXVYQWXJDCSOOPPPSBOSJLZOVGX",
+                    // "x-origin": "x-requested-with",
                 },
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'json',

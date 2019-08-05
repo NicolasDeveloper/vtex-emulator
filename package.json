@@ -1,6 +1,6 @@
 {
   "name": "emulador",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "emulador projeto vtex",
   "main": "index.js",
   "scripts": {
@@ -13,8 +13,12 @@
     "nodemon": "^1.18.5"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
     "express": "^4.16.4",
-    "request": "^2.88.0"
+    "express-fileupload": "^1.0.0",
+    "query-string": "^6.2.0",
+    "request": "^2.88.0",
+    "streamifier": "^0.1.1"
   }
 }

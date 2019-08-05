@@ -1,7 +1,10 @@
 
 module.exports = {
-    hostApi: "lojaprojetoverao.com.br",
+    hostApi: "loja.tena.com.br",
     innerPath: "/",
-    appKey: 'vtexappkey-obasuplementos-GPVOUL',
-    appToken: 'CCGFDHHYJZFTKUWPDXAIMBJWVTZRVMAISKKACDFSRSDIZAYGRKQPEZXBTKJKHPDXZWBZJWMASHQTYBWUUSAKVKDSNJHRTVKBPFJDZZXVYQWXJDCSOOPPPSBOSJLZOVGX'
+    appKey: '',
+    appToken: '',
+    store: "tenabr",
+    breadcrumb: "TENA",
+    cdn: "tenabr.vteximg.com.br",
 }

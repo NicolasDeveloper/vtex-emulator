@@ -1,29 +1,31 @@
-<div id="root-footer"></div>
+<footer>
+    footer
+</footer>
 <div style="display:none;">
     <vtex.cmc:welcomeMessage />
 </div>
+<script>
+    var loadScript = function (scriptUrl) {
+        var script = document.createElement('script');
+        script.src = scriptUrl;
+        document.head.appendChild(script);
+    }
 
-<noscript id="header-banners">
-    <div class="banner">
-        <vtex.cmc:primeirobanner />
-    </div>
-    <div class="banner">
-        <vtex.cmc:segundobanner />
-    </div>
-    <div class="banner">
-        <vtex.cmc:terceirobanner />
-    </div>
-    <div class="banner">
-        <vtex.cmc:quartobanner />
-    </div>
-    <div class="banner">
-        <vtex.cmc:quintobanner />
-    </div>
-    <div class="banner">
-        <vtex.cmc:sextobanner />
-    </div>
-</noscript>
+    var chooseScriptsByEnvironment = function (environment) {
+        switch (environment) {
+            case "localhost":
+                loadScript("http://localhost:3001/arquivos/bundle.dev.website.js");
+                break;
+            default:
+                loadScript("/arquivos/bundle.yourstore.store.v15.website.js");
+                break;
+        }
+    }
 
-<script src="/arquivos/bundle.projetoverao.store.v1.common.js"  type="text/javascript" rel="preload" as="script"></script>  
-<script src="/arquivos/bundle.projetoverao.store.v1.website.js" type="text/javascript" rel="preload" as="script"></script>
-<!-- <script src="http://localhost:3001/arquivos/bundle.website.js" type="text/javascript" rel="preload" as="script"></script> -->
+    var startAssets = function () {
+        var path = window.location.hostname;
+        chooseScriptsByEnvironment(path);
+    }
+
+    startAssets();
+</script>

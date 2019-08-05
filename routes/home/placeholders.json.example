@@ -1,6 +1,6 @@
 [
     {
-        "id": "Prateleira",
+        "id": "Banner Principal",
         "contents": [
             {
                 "id": "banner 01 conteúdo",
@@ -12,8 +12,8 @@
                 "type": "banner",
                 "src": "/arquivos/banner-01.jpg",
                 "href": "#",
-                "width": "960",
-                "height": "400"
+                "width": "200",
+                "height": "200"
             },
             {
                 "id": "collection 01",
@@ -22,5 +22,5 @@
                 "collection": 164
             }
         ]
-    }   
+    }
 ]

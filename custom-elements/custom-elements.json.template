@@ -1,0 +1,122 @@
+[
+    {
+        "name": "Passos Ajuda",
+        "tagName": "passosajuda",
+        "type": "html"
+    },
+    {
+        "name": "Regua Informativa",
+        "tagName": "reguainformativa",
+        "type": "html"
+    },
+    {
+        "name": "Listagem Menu Desk",
+        "tagName": "navigationdesk",
+        "type": "html"
+    },
+    {
+        "name": "Reviews Content",
+        "tagName": "reviewscontent",
+        "type": "html"
+    },
+    {
+        "name": "site map",
+        "tagName": "sitemapnavigation",
+        "type": "html"
+    },
+    {
+        "name": "Letreiro Promoção",
+        "tagName": "letreiropromocao",
+        "type": "html"
+    },
+    {
+        "name": "Primeiro Banner",
+        "tagName": "primeirobanner",
+        "id": "Primeiro Banner",
+        "type": "banner",
+        "src": "/arquivos/banner-navigation.png",
+        "href": "#",
+        "width": "200",
+        "height": "200"
+    },
+    {
+        "name": "Segundo Banner",
+        "tagName": "segundobanner",
+        "id": "Segundo Banner",
+        "type": "banner",
+        "src": "/arquivos/banner-navigation.png",
+        "href": "#",
+        "width": "200",
+        "height": "200"
+    },
+    {
+        "name": "Terceiro Banner",
+        "tagName": "terceirobanner",
+        "id": "Segundo Banner",
+        "type": "banner",
+        "src": "/arquivos/banner-navigation.png",
+        "href": "#",
+        "width": "200",
+        "height": "200"
+    },
+    {
+        "name": "Quarto Banner",
+        "tagName": "quartobanner",
+        "id": "Segundo Banner",
+        "type": "banner",
+        "src": "/arquivos/banner-navigation.png",
+        "href": "#",
+        "width": "200",
+        "height": "200"
+    },
+    {
+        "name": "Quinto Banner",
+        "tagName": "quintobanner",
+        "id": "Segundo Banner",
+        "type": "banner",
+        "src": "/arquivos/banner-navigation.png",
+        "href": "#",
+        "width": "200",
+        "height": "200"
+    },
+    {
+        "name": "Sexto Banner",
+        "tagName": "sextobanner",
+        "id": "Segundo Banner",
+        "type": "banner",
+        "src": "/arquivos/banner-navigation.png",
+        "href": "#",
+        "width": "200",
+        "height": "200"
+    },
+    {
+        "name": "Banner Promoção",
+        "tagName": "promotionbanner",
+        "id": "Banner Promoção",
+        "type": "banner",
+        "src": "/arquivos/banner-promocao.jpg",
+        "href": "#",
+        "width": "200",
+        "height": "200"
+    },
+    {
+        "name": "Banner Promoção Ativa",
+        "tagName": "activepromotionbanner",
+        "id": "Banner Promoção Ativa",
+        "type": "banner",
+        "src": "/arquivos/banner-active-promotion.jpg",
+        "href": "#",
+        "width": "200",
+        "height": "200"
+    },
+    {
+        "name": "Navegação Quarto Banner",
+        "tagName": "navigationquartobanner",
+        "id": "Navegação Quarto Banner",
+        "type": "banner",
+        "src": "/arquivos/navigation-quarto-banner.jpg",
+        "href": "#",
+        "width": "200",
+        "height": "200"
+    }
+]

@@ -17,13 +17,14 @@ const _buildTemplate = (product, _path) => {
 
             const installment = seller && seller.commertialOffer.Installments[0];
 
+            template = template.replace(/\$idSku/g, sku.itemId);
             template = template.replace(/\$id/g, product.productId);
             template = template.replace(/\$product\.Name/g, product.productName);
-            template = template.replace(/\$idSku/g, sku.itemId);
+            template = template.replace(/\$product\.DescriptionShort/g, sku.complementName);
             template = template.replace(/\$product\.BrandName/g, product.brand);
             template = template.replace(/\$product\.CategoryName/g, categorie);
             template = template.replace(/\$product\.DepartmentName/g, department);
-            template = template.replace(/\$uri/g, product.link.replace("//lojaprojetoverao.vtexcommercestable.com.br", ""));
+            template = template.replace(/\$uri/g, product.link.replace("https://lojaprojetoverao.vtexcommercestable.com.br", ""));
             template = template.replace(/\$product\.BestPrice/g, seller ? seller.commertialOffer.Price.toString().replace(/\./g, ",") : "R$ 00,00");
             template = template.replace(/\$product\.ListPrice/g, seller ? seller.commertialOffer.ListPrice.toString().replace(/\./g, ",") : "R$ 00,00");
             template = template.replace(/\$product\.IsInStock/g, seller ? "True" : "False");

@@ -1,7 +1,13 @@
 const path = require("path");
 const fs = require("fs");
-const vtexApi = require("../core/vtex-api");
-const shelfEngine = require("./shelf-engine");
+const dataService = require("./services/data.service");
+const templateEngineService = require("./template-engine/catalog/template-engine.service");
+const shelfConfigs = require("../shelves-template/shelfs-config.json");
+
+
+const getTemplatePath = (templatePath) => {
+    return `${path.resolve(__dirname, templatePath)}`
+}
 
 module.exports.html = (content, _path) => {
     return new Promise((resolve, reject) => {
@@ -23,7 +29,6 @@ module.exports.htmlCustomElement = (content) => {
 
 module.exports.banner = (content, index) => {
     return new Promise((resolve, reject) => {
-
         fs.readFile(`${path.resolve(__dirname, "../templates-config/banner.html")}`, "utf8", (err, data) => {
             let contentHtml = data;
 
@@ -42,9 +47,10 @@ module.exports.banner = (content, index) => {
 
 module.exports.collection = (content) => {
     return new Promise(async (resolve, reject) => {
-        const products = await vtexApi.getByCollection(content.collection);
-        const contentHtml = await shelfEngine.parseTemplate(products, content);
-        content.html = contentHtml;
+        const products = await dataService.getByCollection(content.collection);
+        const shelfConfig = shelfConfigs.find(shelf => shelf.template === `${content.layout}.html`);
+        const templateParsed = await templateEngineService.parse(getTemplatePath(`../shelves-template/${shelfConfig.template}`), products, shelfConfig, content.id || content.name);
+        content.html = templateParsed;
         resolve(content);
     });
 }
